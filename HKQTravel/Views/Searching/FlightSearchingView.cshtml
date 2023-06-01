@@ -1,8 +1,7 @@
-﻿@using HKQTravel.Models
-@using PagedList.Mvc
-@model PagedList.PagedList<flight>
+﻿@model  IEnumerable<HKQTravel.Models.flight>
+
 @{
-    ViewBag.Title = "flight";
+    ViewBag.Title = "FlightSearchingView";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -48,7 +47,7 @@
                 </div>
             }
             <div class="MenuTrang" style="display: flex;justify-content: center;padding-top: 16px;">
-                @Html.PagedListPager(Model, page => Url.Action("flight", new { page = page }))
+                @*@Html.PagedListPager(Model, page => Url.Action("flight", new { page = page }))*@
             </div>
         </div>
     </div>

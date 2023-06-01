@@ -1,0 +1,35 @@
+﻿@model IEnumerable<HKQTravel.Models.HistoryFlight>
+
+@{
+    ViewBag.Title = "historyFlight";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align: center; background-color: ghostwhite;">Lịch sử chuyến bay</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Ngày hóa đơn</th>
+            <th scope="col">Họ và tên</th>
+            <th scope="col">Tên hãng bay</th>
+            <th scope="col">Giá/vé</th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Tổng tiền</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td scope="row">@item.CreateDate</td>
+                <td scope="row">@item.FullName</td>
+                <td scope="row">@item.FlightName</td>
+                <td scope="row">@String.Format("{0:0,0}", item.Price)</td>
+                <td scope="row">@item.Quantity</td>
+                <td scope="row">@String.Format("{0:0,0}", item.TotalPrice)</td>
+            </tr>
+        </tbody>
+    }
+</table>
+

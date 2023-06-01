@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Assets\User\StringHelper.cs" />
+    <Compile Include="Controllers\SearchingController.cs" />
     <Compile Include="Controllers\TourCartController.cs" />
     <Compile Include="Controllers\FlightCartController.cs" />
     <Compile Include="Controllers\GuestController.cs" />
@@ -137,6 +138,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\FlightCartModel.cs" />
+    <Compile Include="Models\HistoryFlight.cs" />
+    <Compile Include="Models\HistoryHotel.cs" />
     <Compile Include="Models\HistoryTour.cs" />
     <Compile Include="Models\HKQTravel.designer.cs">
       <AutoGen>True</AutoGen>
@@ -358,6 +361,11 @@
     <Content Include="Views\Guest\findAccountToSendPassword.cshtml" />
     <Content Include="Views\Guest\forgotPassword.cshtml" />
     <Content Include="Views\Guest\typeAuthorityNumber.cshtml" />
+    <Content Include="Views\Guest\historyHotel.cshtml" />
+    <Content Include="Views\Guest\historyFlight.cshtml" />
+    <Content Include="Views\Searching\TourSearchingView.cshtml" />
+    <Content Include="Views\Searching\HotelSearchingView.cshtml" />
+    <Content Include="Views\Searching\FlightSearchingView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

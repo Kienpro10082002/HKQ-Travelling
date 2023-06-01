@@ -497,6 +497,40 @@ namespace HQKTravel.Controllers
                             }).OrderByDescending(t => t.BillId).ToList();
             return View(listTour);
         }
+
+        [HttpGet]
+        public ActionResult historyHotel()
+        {
+            var listHotel = (from bill_hotel in data.bill_hotels
+                            select new HistoryHotel
+                            {
+                                BillId = bill_hotel.bill_hotel_id,
+                                CreateDate = bill_hotel.create_date.ToString(),
+                                FullName = bill_hotel.user_account.user_fullname.ToString(),
+                                HotelName = bill_hotel.hotel.hotel_name.ToString(),
+                                Price = bill_hotel.hotel.price != null ? (decimal)bill_hotel.hotel.price : 0,
+                                Quantity = bill_hotel.quantity.ToString(),
+                                TotalPrice = bill_hotel.total != null ? (decimal)bill_hotel.total : 0
+                            }).OrderByDescending(t => t.BillId).ToList();
+            return View(listHotel);
+        }
+
+        [HttpGet]
+        public ActionResult historyFlight()
+        {
+            var listFlight = (from bill_flight in data.bill_flights
+                            select new HistoryFlight
+                            {
+                                BillId = bill_flight.bill_flight_id,
+                                CreateDate = bill_flight.create_date.ToString(),
+                                FullName = bill_flight.user_account.user_fullname.ToString(),
+                                FlightName = bill_flight.flight.flight_brand.flight_brand_name.ToString(),
+                                Price = bill_flight.flight.price != null ? (decimal)bill_flight.flight.price : 0,
+                                Quantity = bill_flight.quantity.ToString(),
+                                TotalPrice = bill_flight.total != null ? (decimal)bill_flight.total : 0
+                            }).OrderByDescending(t => t.BillId).ToList();
+            return View(listFlight);
+        }
         #endregion
     }
 }
