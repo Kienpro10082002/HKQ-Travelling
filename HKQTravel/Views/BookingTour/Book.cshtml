@@ -1,0 +1,82 @@
+﻿@model IEnumerable<HKQTravel.Models.tour>
+
+@{
+    ViewBag.Title = "Book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Book</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tour_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departure_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.return_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.destination_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departure_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tour_type_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.discount_id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tour_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.departure_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.return_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.destination_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.departure_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tour_type_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.discount_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.tour_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.tour_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.tour_id })
+        </td>
+    </tr>
+}
+
+</table>

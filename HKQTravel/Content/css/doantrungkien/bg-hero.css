@@ -1,0 +1,11 @@
+﻿.img-touring {
+    height: 232px;
+    width: 100%;
+}
+
+@media (max-width: 767px) { /* Thiết lập chiều cao cho điện thoại di động */
+    .img-touring {
+        height: 276px;
+        width: 100%;
+    }
+}

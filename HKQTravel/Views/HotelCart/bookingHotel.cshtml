@@ -1,0 +1,55 @@
+﻿@using HKQTravel.Models
+@model List<HKQTravel.Models.HotelCartModel>
+@{
+    ViewBag.Title = "HKQTraveling";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@{
+    user_account user = (user_account)Session["user_account"];
+}
+
+<div class="container-fluid text-center justify-content-center">
+
+    @using (Html.BeginForm("bookingHotel", "HotelCart", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        <div class="col input-text col-70">
+            <div class="content-header">
+                <input type="hidden" name="id_Hotel" value="@ViewBag.lIdHotel" />
+            </div>
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Họ và tên</th>
+                        <th scope="col">Số điện thoại</th>
+                        <th scope="col">Địa chỉ</th>
+                        <th scope="col">Ngày thanh toán</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Tổng tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">@user.user_fullname</th>
+                        <th scope="row">@user.phone_number</th>
+                        <th scope="row">@user.address</th>
+                        <th scope="row">@DateTime.Now.ToShortDateString()</th>
+                        <th scope="row">@ViewBag.dTotalQuatityHotel</th>
+                        <th scope="row">@String.Format("{0:0,0}", ViewBag.dTotalpriceHotel) VND</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h6>Thanh toán sau</h6>
+        <button class="btn btn-outline-info" type="submit">Xác nhận đặt khách sạn</button>
+        <a class="btn btn-outline-danger" href="@Url.Action("Index", "Home")">Trở về</a>
+        <h6 style="margin-top: 10px; ">Thanh toán trực tuyến Paypal</h6>
+    }
+
+
+    <div style="margin-top: 10px; display: flex; justify-content: center;">
+        <div id="paypal-button-container"></div>
+    </div>
+
+</div>

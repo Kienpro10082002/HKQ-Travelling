@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HKQTravel" Class="HKQTravelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.admin_account" Member="admin_accounts">
+    <Type Name="admin_account">
+      <Column Name="admin_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="admin_user" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="admin_password" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="admin_fulllname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="create_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="update_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.bill_flight" Member="bill_flights">
+    <Type Name="bill_flight">
+      <Column Name="bill_flight_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="total" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="create_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="user_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="flight_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="flight_bill_flight" Member="flight" ThisKey="flight_id" OtherKey="flight_id" Type="flight" IsForeignKey="true" />
+      <Association Name="user_account_bill_flight" Member="user_account" ThisKey="user_id" OtherKey="user_id" Type="user_account" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.bill_hotel" Member="bill_hotels">
+    <Type Name="bill_hotel">
+      <Column Name="bill_hotel_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="total" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="create_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="user_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="hotel_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="hotel_bill_hotel" Member="hotel" ThisKey="hotel_id" OtherKey="hotel_id" Type="hotel" IsForeignKey="true" />
+      <Association Name="user_account_bill_hotel" Member="user_account" ThisKey="user_id" OtherKey="user_id" Type="user_account" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.bill_tour" Member="bill_tours">
+    <Type Name="bill_tour">
+      <Column Name="bill_tour_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="total" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="create_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="user_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="tour_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="tour_bill_tour" Member="tour" ThisKey="tour_id" OtherKey="tour_id" Type="tour" IsForeignKey="true" />
+      <Association Name="user_account_bill_tour" Member="user_account" ThisKey="user_id" OtherKey="user_id" Type="user_account" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.class" Member="classes">
+    <Type Name="class">
+      <Column Name="class_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="class_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="class_flight" Member="flights" ThisKey="class_id" OtherKey="class_id" Type="flight" />
+    </Type>
+  </Table>
+  <Table Name="dbo.departure_point" Member="departure_points">
+    <Type Name="departure_point">
+      <Column Name="departure_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="departure_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="departure_point_tour" Member="tours" ThisKey="departure_id" OtherKey="departure_id" Type="tour" />
+    </Type>
+  </Table>
+  <Table Name="dbo.destination_point" Member="destination_points">
+    <Type Name="destination_point">
+      <Column Name="destination_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="destination_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="destination_image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="destination_point_tour" Member="tours" ThisKey="destination_id" OtherKey="destination_id" Type="tour" />
+    </Type>
+  </Table>
+  <Table Name="dbo.discount" Member="discounts">
+    <Type Name="discount">
+      <Column Name="discount_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="discount_month" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="percentage" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="discount_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="create_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="update_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="discount_tour" Member="tours" ThisKey="discount_id" OtherKey="discount_id" Type="tour" />
+    </Type>
+  </Table>
+  <Table Name="dbo.flight" Member="flights">
+    <Type Name="flight">
+      <Column Name="flight_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="flight_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="departure_location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="destination_location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="start_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="return_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="number_of_passenger" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="class_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="flight_brand_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="flight_bill_flight" Member="bill_flights" ThisKey="flight_id" OtherKey="flight_id" Type="bill_flight" />
+      <Association Name="class_flight" Member="class" ThisKey="class_id" OtherKey="class_id" Type="class" IsForeignKey="true" />
+      <Association Name="flight_brand_flight" Member="flight_brand" ThisKey="flight_brand_id" OtherKey="flight_brand_id" Type="flight_brand" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.flight_brand" Member="flight_brands">
+    <Type Name="flight_brand">
+      <Column Name="flight_brand_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="flight_brand_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="flight_brand_image" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="flight_brand_flight" Member="flights" ThisKey="flight_brand_id" OtherKey="flight_brand_id" Type="flight" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hotel" Member="hotels">
+    <Type Name="hotel">
+      <Column Name="hotel_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hotel_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="number_room" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ranking" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="hotel_bill_hotel" Member="bill_hotels" ThisKey="hotel_id" OtherKey="hotel_id" Type="bill_hotel" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tour" Member="tours">
+    <Type Name="tour">
+      <Column Name="tour_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tour_name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="departure_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="return_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="destination_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="departure_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="discount_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="tour_type_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="create_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="update_create" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="tour_bill_tour" Member="bill_tours" ThisKey="tour_id" OtherKey="tour_id" Type="bill_tour" />
+      <Association Name="destination_point_tour" Member="destination_point" ThisKey="destination_id" OtherKey="destination_id" Type="destination_point" IsForeignKey="true" />
+      <Association Name="departure_point_tour" Member="departure_point" ThisKey="departure_id" OtherKey="departure_id" Type="departure_point" IsForeignKey="true" />
+      <Association Name="discount_tour" Member="discount" ThisKey="discount_id" OtherKey="discount_id" Type="discount" IsForeignKey="true" />
+      <Association Name="tour_type_tour" Member="tour_type" ThisKey="tour_type_id" OtherKey="tour_type_id" Type="tour_type" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tour_type" Member="tour_types">
+    <Type Name="tour_type">
+      <Column Name="tour_type_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tour_type_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tour_type_tour" Member="tours" ThisKey="tour_type_id" OtherKey="tour_type_id" Type="tour" />
+    </Type>
+  </Table>
+  <Table Name="dbo.user_account" Member="user_accounts">
+    <Type Name="user_account">
+      <Column Name="user_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_fullname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="phone_number" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="sex" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="user_image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="create_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="update_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="user_account_bill_flight" Member="bill_flights" ThisKey="user_id" OtherKey="user_id" Type="bill_flight" />
+      <Association Name="user_account_bill_hotel" Member="bill_hotels" ThisKey="user_id" OtherKey="user_id" Type="bill_hotel" />
+      <Association Name="user_account_bill_tour" Member="bill_tours" ThisKey="user_id" OtherKey="user_id" Type="bill_tour" />
+    </Type>
+  </Table>
+</Database>
