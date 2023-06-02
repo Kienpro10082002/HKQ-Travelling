@@ -44,7 +44,7 @@
         </div>
         <h6>Thanh toán sau</h6>
         <button class="btn btn-outline-info" type="submit">Xác nhận đặt tour</button>
-        <a class="btn btn-outline-danger" href="@Url.Action("Index", "Home")">Trở về</a>
+        <a class="btn btn-outline-danger" href="@Url.Action("deleteAllTourCart", "TourCart")">Trở về</a>
         <h6 style="margin-top: 10px; ">Thanh toán trực tuyến Paypal</h6>
     }
 
@@ -55,3 +55,39 @@
 
 </div>
 
+
+@*Thanh toán Paypal*@
+
+@{
+    decimal price = ViewBag.dTotalpriceTour;
+    float totalprice = decimal.ToSingle(price);
+}
+<script src="https://www.paypal.com/sdk/js?client-id=AXhgZLHBNSAsv9TksGFMmrR7aYqG5xOM_L3uqUZb96xKFGg2kD9p3v7UDbMDGDoFGW4SIc3qiLA87gix"></script>
+<script>
+        var getValue = @totalprice;
+
+        //< !--Đoạn mã script nhận paypal-- >
+        paypal.Buttons({
+            createOrder: function (data, actions) {
+                // This function sets up the details of the transaction, including the amount and line item details.
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: getValue
+                        }
+                    }]
+                });
+            },
+            onApprove: function (data, actions) {
+                // This function captures the funds from the transaction.
+                return actions.order.capture().then(function (details) {
+                    // This function shows a transaction success message to your buyer.
+
+                    alert('Thanh toán Paypal thành công bởi ' +
+
+                        details.payer.name.given_name);
+                });
+            }
+        }).render('#paypal-button-container');
+    //This function displays Smart Payment Buttons on your web page.
+</script>
