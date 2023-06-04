@@ -1,0 +1,26 @@
+﻿@model List<HKQTravel.Areas.Admin.Data.BillFlightByMonth>
+
+<div class="container text-center">
+    <h2>Tổng doanh thu Flight</h2>
+
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="row">Tháng</th>
+                <th scope="row">Năm</th>
+                <th scope="row">Tổng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td scope="row">@item.Month</td>
+                    <td scope="row">@item.Year</td>
+                    <td scope="row">@String.Format("{0:0,0}", item.TotalRevenue) VND</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

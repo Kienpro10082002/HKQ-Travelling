@@ -1,0 +1,97 @@
+﻿@using PagedList.Mvc;
+@using HKQTravel.Models;
+@model  PagedList.PagedList<HKQTravel.Models.user_account>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <strong class="text-danger">
+                        DANH SÁCH KHÁCH HÀNG
+                    </strong>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="@Url.Action("Create","User")" class="btn btn-sm btn-success">Thêm</a>
+                    <a href="@Url.Action("TrashList","User")" class="btn btn-sm btn-danger">Thùng rác</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>Id</th>
+                    <th>Họ và tên</th>                              
+                    <th>Giới tính</th>
+                    <th>Hình ảnh</th>
+                    <th>Ngày tạo</th>
+                    <th>Ngày cập nhật</th>
+                    <th>Trạng thái</th>
+                    <th>Chức năng</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center"><input type="checkbox" /></td>
+                        <td class="text-center">@item.user_id</td>
+                        <td>@item.user_fullname</td>
+                        <td>@item.sex</td>
+                        <td><img src="@Url.Content(item.user_image)"  width="150" height="100" /></td>
+                        <td>@item.create_date</td>
+                        <td>@item.update_date</td>
+
+                        @if (item.status == 1)
+                        {
+                            <td>Đang hoạt động </td>
+                        }
+                        @if(item.status==2)
+                        {
+                            <td>Tạm khóa </td>
+                        }
+                        <td class="text-center">
+
+                            @if (item.status == 1)
+                            {
+                                <a href="@Url.Action("status","User",new { id = item.user_id })" class="btn btn-sm btn-success"><i class="fas fa-toggle-on"></i></a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("status","User",new { id = item.user_id })" class="btn btn-sm btn-danger"><i class="fas fa-toggle-off"></i></a>
+                            }
+                            <a href="@Url.Action("Edit","User",new { id = item.user_id })" class="btn btn-sm btn-success">Sửa</a>
+                            <a href="@Url.Action("Details","User",new { id = item.user_id })" class="btn btn-sm btn-info">Chi tiết</a>
+                            <a href="@Url.Action("DeleteTemporary","User",new { id = item.user_id })" class="btn btn-sm btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+        <div class="card-footer">
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+            <div class="MenuTrang">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+            </div>
+            <style>
+                .MenuTrang li {
+                    display: inline;
+                }
+
+                    .MenuTrang li a {
+                        color: black;
+                        float: left;
+                        padding: 8px 16px;
+                        text-decoration: none;
+                    }
+            </style>
+        </div>
+    </div>
+</section>

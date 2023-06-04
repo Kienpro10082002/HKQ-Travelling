@@ -1,0 +1,83 @@
+﻿@using PagedList.Mvc;
+@using HKQTravel.Models;
+@model PagedList.PagedList<HKQTravel.Models.flight>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <strong class="text-danger">
+                        DANH SÁCH CHUYẾN BAY
+                    </strong>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="@Url.Action("Create","Flight")" class="btn btn-sm btn-success">Thêm</a>
+                    <a href="@Url.Action("","")" class="btn btn-sm btn-danger">Thùng rác</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>Id</th>
+                    <th>Tên chuyến bay</th>
+                    <th>Điểm khởi hành</th>
+                    <th>Điểm đến</th>
+                    <th>Thời gian khởi hành</th>
+                    <th>Ngày về</th>
+                    <th>Giá</th>
+                    <th>Hạng ghế ngồi</th>         
+                    <th>Chức năng</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center"><input type="checkbox" /></td>
+                        <td class="text-center">@item.flight_id</td>
+                        <td>@item.flight_name</td>
+                        <td>@item.departure_location</td>
+                        <td>@item.destination_location</td>
+                        <td>@item.start_time</td>
+                        <td>@item.return_time</td>
+                        <td>@item.price</td>
+                        <td>@Html.DisplayFor(modelItem => item.@class.class_name)</td>
+                        <td class="text-center">
+                            <a href="@Url.Action("Edit","Flight",new { id = item.flight_id })" class="btn btn-sm btn-success">Sửa</a>
+                            <a href="@Url.Action("Details","Flight",new { id = item.flight_id })" class="btn btn-sm btn-info">Chi tiết</a>
+                            <a href="@Url.Action("Delete","Flight",new { id = item.flight_id })" class="btn btn-sm btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+        <div class="card-footer">
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+            <div class="MenuTrang">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+            </div>
+            <style>
+                .MenuTrang li {
+                    display: inline;
+                }
+
+                .MenuTrang li a {
+                    color: black;
+                    float: left;
+                    padding: 8px 16px;
+                    text-decoration: none;
+                }
+            </style>
+        </div>
+    </div>
+</section>

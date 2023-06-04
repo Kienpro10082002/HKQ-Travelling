@@ -80,11 +80,7 @@ namespace HKQTravel.Models
 			OnCreated();
 		}
 
-        public HKQTravelDataContext() :
-            base(global::System.Configuration.ConfigurationManager.ConnectionStrings["HKQTravelConnectionString"].ConnectionString, mappingSource)
-        {
-            OnCreated();
-        }
+        public HKQTravelDataContext() : base(global::System.Configuration.ConfigurationManager.ConnectionStrings["HKQTravelConnectionString"].ConnectionString, mappingSource) { OnCreated(); }
 
         public HKQTravelDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)

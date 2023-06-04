@@ -1,0 +1,94 @@
+﻿@model HKQTravel.Models.flight
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using (Html.BeginForm("Edit", "Flight", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong class="text-danger">
+                            CẬP NHẬT CHUYẾN BAY
+                        </strong>
+                    </div>
+
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-success btn-sm" type="submit">Cập nhật</button>
+                        <a href="@Url.Action("", "")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-9 ">
+                        <div class="mb-3">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.flight_id)
+
+                            <div class="form-group">
+                                <label for="name">Tên Chuyến Bay:</label>
+                                @Html.EditorFor(model => model.flight_name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.flight_name, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Thời gian khởi hành:</label>
+                                <input type="datetime-local" class="form-control" id="timego" name="timego">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Thời gian về:</label>
+                                <input type="datetime-local" class="form-control" id="timego" name="timereturn">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Điểm đi:</label>
+                                @Html.EditorFor(model => model.destination_location, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.destination_location, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Điểm đến:</label>
+                                @Html.EditorFor(model => model.departure_location, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.departure_location, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Giá:</label>
+                                @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Số ghế ngồi:</label>
+                                @Html.EditorFor(model => model.number_of_passenger, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.number_of_passenger, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.class_id, "Loại vé", htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(model => model.class_id, (SelectList)ViewBag.class_id, "Chọn loại vé", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.class_id, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.flight_brand_id, "Hãng máy bay", htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(model => model.flight_brand_id, (SelectList)ViewBag.flight_brand_id, "Chọn hãng máy bay", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.flight_brand_id, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-right">
+            <button class="btn btn-success btn-sm" type="submit">Cập nhật</button>
+            <a href="@Url.Action("", "Flight")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+        </div>
+    </section>
+}

@@ -1,0 +1,103 @@
+﻿@model HKQTravel.Models.user_account
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Create", "User", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong class="text-danger">
+                            THÊM NGƯỜI DÙNG  @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        </strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-success btn-sm" type="submit">Lưu</button>
+                        <a href="@Url.Action("","User")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-9 ">
+                        <div class="mb-3">
+                            <label for="name">Họ tên khách:</label>
+                            @Html.EditorFor(model => model.user_fullname, new { htmlAttributes = new { @class = "form-control", id = "hoten" } })
+
+
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Tài khoản:</label>
+                            @Html.EditorFor(model => model.user_name, new { htmlAttributes = new { @class = "form-control", id = "taikhoan" } })
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Mật khẩu:</label>
+                            @Html.EditorFor(model => model.user_password, new { htmlAttributes = new { @class = "form-control", id = "matkhau", type = "password" } })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Số điện thoại:</label>
+                            @Html.EditorFor(model => model.phone_number, new { htmlAttributes = new { @class = "form-control", id = "sdt" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Địa chỉ:</label>
+                            @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control", id = "diachi" } })
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="name">Giới tính:</label>
+                            <select class="form-control" id="gioitinh" name="gioitinh">
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                                <option value="Khác">Khác</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Email:</label>
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", id = "email", type = "email" } })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Ngày sinh:</label>
+                            <input type="date" class="form-control" id="ngaysinh" name="ngaysinh">
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Hình ảnh nhân viên:</label>
+                            @Html.TextBox("fileImage", "", new { type = "file", accept = "image/*" })
+                            <br />
+                            <img id="preview" src="" width="150" height="100" class="hidden" />
+                            <br />
+                            @Html.ValidationMessageFor(model => model.user_image, "", new { @class = "text-danger" })
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-right">
+                <button class="btn btn-success btn-sm" type="submit">Lưu</button>
+                <a href="@Url.Action("Index","User")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+            </div>
+
+        </div>
+
+    </section>
+}
+
+}

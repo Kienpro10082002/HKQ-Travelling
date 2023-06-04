@@ -1,0 +1,61 @@
+﻿@model HKQTravel.Models.flight_brand
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Flight_Brand", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong class="text-danger">
+                            THÊM HÃNG MÁY BAY  @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        </strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-success btn-sm" type="submit">Lưu</button>
+                        <a href="@Url.Action("","Flight_Brand")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-9 ">
+                        <div class="mb-3">
+                            <label for="name">Tên hãng:</label>
+                            @Html.EditorFor(model => model.flight_brand_name, new { htmlAttributes = new { @class = "form-control", id = "flight_brand_name" } })
+
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="name">Hình Hãng máy bay:</label>
+                            @Html.TextBox("fileImage", "", new { type = "file", accept = "image/*" })
+                            <br />
+                            <img id="preview" width="150" height="100" class="hidden" />
+                            <br />
+                            @Html.ValidationMessageFor(model => model.flight_brand_image, "", new { @class = "text-danger" })
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-right">
+                <button class="btn btn-success btn-sm" type="submit">Lưu</button>
+                <a href="@Url.Action("Index","Flight_Brand")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+            </div>
+
+        </div>
+
+    </section>
+}
+
+}

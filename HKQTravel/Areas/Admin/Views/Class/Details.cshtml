@@ -1,0 +1,32 @@
+﻿@model HKQTravel.Models.@class
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="col-md-6">
+            <strong class="text-danger">
+                CHI TIẾT HẠNG GHẾ NGỒI
+            </strong>
+        </div>
+    </div>
+    <div class="card-body">
+
+        <dl class="row">
+            <dt class="col-sm-3">
+                <label for="name"> Tên hạng ghế ngồi</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.class_name)
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group">
+            <a href="@Url.Action("Edit","Class",new { id = Model.class_id })" class="btn btn-sm btn-success">Sửa</a>
+            <a href="@Url.Action("","Class")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+        </div>
+    </div>
+</div>

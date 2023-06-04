@@ -1,0 +1,121 @@
+﻿@model HKQTravel.Models.user_account
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        <div class="col-md-6">
+            <strong class="text-danger">
+                CHI TIẾT NHÂN VIÊN
+            </strong>
+        </div>
+    </div>
+    <div class="card-body">
+
+        <dl class="row">
+            <dt class="col-sm-3">
+                <label for="name"> Mã khách hàng</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.user_id)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Tên tài khoản</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.user_name)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Mật khẩu</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.user_password)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Tên khách hàng</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.user_fullname)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Số điện thoại </label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.phone_number)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Email</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.email)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Ngày sinh</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.birthday)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Địa chỉ</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.address)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Giới tính</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.sex)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Ảnh khách hàng</label>
+            </dt>
+            <dd class="col-sm-9">
+                <td><img src="@Url.Content(Model.user_image)" width="150" height="100" /></td>
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Ngày tạo</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.create_date)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Ngày cập nhật</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.update_date)
+            </dd>
+           
+            <dt class="col-sm-3">
+                <label for="name">Trạng thái</label>
+            </dt>
+            <dd class="col-sm-9">
+                @if (Model.status == 1)
+                {
+                    <td>Đang hoạt động </td>
+                }
+                @if (Model.status == 2)
+                {
+                    <td>Tạm khóa </td>
+                }
+            </dd>
+          
+        </dl>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group">
+            <a href="@Url.Action("Edit","User",new { id = Model.user_id })" class="btn btn-sm btn-success">Sửa</a>
+            <a href="@Url.Action("","User")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+        </div>
+    </div>
+</div>

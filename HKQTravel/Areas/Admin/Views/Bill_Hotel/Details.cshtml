@@ -1,0 +1,75 @@
+﻿@model HKQTravel.Models.bill_hotel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <div class="col-md-6">
+            <strong class="text-danger">
+                CHI TIẾT HÓA ĐƠN KHÁCH SẠN
+            </strong>
+        </div>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">
+                <label for="name"> Mã loại hóa đơn chuyến bay:</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.bill_hotel_id)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">tài khoản người dùng:</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(modelItem => Model.user_account.user_name)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Tên người dùng:</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(modelItem => Model.user_account.user_fullname)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Tên khách sạn</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(modelItem => Model.hotel.hotel_name)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Số lượng</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.quantity)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Tổng tiền</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.total)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Ngày tạo</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.create_date)
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group">
+            <a href="@Url.Action("","Bill_Hotel")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+        </div>
+    </div>
+</div>

@@ -102,26 +102,22 @@
             <h1 class="mb-5">Popular Destination</h1>
         </div>
         <div class="row g-3">
-            <div class="col-lg-7 col-md-6">
-                <div class="row g-3">
-                    @foreach (var destination in Model)
-                    {
-                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s" style="margin-bottom: 6px">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="~/Assets/User/img_slider/@destination.destination_point.destination_image" alt="">
-                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">@destination.destination_point.destination_name</div>
-                            </a>
+            @foreach (var des in Model)
+            {
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+
+                    <div class="package-item">
+                        <div class="overflow-hidden m-2">
+                            <img class="img-touring" src="@Url.Content(des.destination_point.destination_image)" alt="">
+                            <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">@des.destination_point.destination_name</div>
+
                         </div>
-                    }
+
+                    </div>
 
                 </div>
-            </div>
-            <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                <a class="position-relative d-block h-100 overflow-hidden" href="">
-                    <img class="img-fluid position-absolute w-100 h-100" src="~/Assets/User/img_slider/destination-4.jpg" alt="" style="object-fit: cover;">
-                    <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Ha Noi</div>
-                </a>
-            </div>
+            }
+
         </div>
     </div>
 </div>
@@ -141,7 +137,7 @@
 
                     <div class="package-item">
                         <div class="overflow-hidden">
-                            <img class="img-touring" src="~/Assets/User/img_slider/@tour.destination_point.destination_image" alt="@tour.destination_point.destination_image">
+                            <img class="img-touring" src="@Url.Content(tour.destination_point.destination_image)" alt="@tour.destination_point.destination_image">
                         </div>
                         <div class="d-flex border-bottom">
                             <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>@tour.destination_point.destination_name</small>
@@ -149,7 +145,7 @@
                             @*<small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2 Person</small>*@
                         </div>
                         <div class="text-center p-4">
-                            <h3 class="mb-0">@String.Format("{0:0,0}", tour.price) vnd</h3>
+                            <h3 class="mb-0">@String.Format("{0:0,0}", tour.price) VND</h3>
                             <div class="mb-3">
                                 <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>

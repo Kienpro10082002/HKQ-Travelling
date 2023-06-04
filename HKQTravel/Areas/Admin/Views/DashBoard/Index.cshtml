@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container">
+    <center style="background-color: #268951;">
+        <h1>Trang chủ</h1>
+    </center>
+
+    <div style="border-bottom: 1px solid black;">
+    </div>
+
+    <div id="dashboard-partial" class="m-3">
+        @Html.Action("DashBoardForBillTour", "DashBoard")
+    </div>
+
+    <div style="border-bottom: 1px solid black;">
+    </div>
+
+    <div id="dashboard-partial" class="m-3">
+        @Html.Action("DashBoardForBillHotel", "DashBoard")
+    </div>
+
+    <div style="border-bottom: 1px solid black;">
+    </div>
+
+    <div id="dashboard-partial" class="m-3">
+        @Html.Action("DashBoardForBillFlight", "DashBoard")
+    </div>
+</div>

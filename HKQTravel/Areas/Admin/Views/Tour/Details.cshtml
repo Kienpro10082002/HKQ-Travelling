@@ -1,0 +1,111 @@
+﻿@model HKQTravel.Models.tour
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="col-md-6">
+            <strong class="text-danger">
+                CHI TIẾT TOUR
+            </strong>
+        </div>
+    </div>
+    <div class="card-body">
+
+        <dl class="row">
+            <dt class="col-sm-3">
+                <label for="name"> Tên tour</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.tour_name)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Giá tour</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.price)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">thời gian khởi hành</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.departure_time)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">thời gian trở về</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.return_time)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">mã giảm giá</label>
+            </dt>
+            <dd class="col-sm-9">
+                <td>@Html.DisplayFor(modelItem => Model.discount.discount_name)</td>
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Loại tour</label>
+            </dt>
+            <dd class="col-sm-9">
+                <td>@Html.DisplayFor(modelItem => Model.tour_type.tour_type_name)</td>
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Điểm đến</label>
+            </dt>
+            <dd class="col-sm-9">
+                <td>@Html.DisplayFor(modelItem => Model.destination_point.destination_name)</td>
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Điểm khởi hành</label>
+            </dt>
+            <dd class="col-sm-9">
+                <td>@Html.DisplayFor(modelItem => Model.departure_point.departure_name)</td>
+            </dd>
+
+          
+            <dt class="col-sm-3">
+                <label for="name">Ngày tạo</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.create_date)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Ngày cập nhật</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.update_create)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Trạng thái</label>
+            </dt>
+            <dd class="col-sm-9">
+                @if (Model.status == 1)
+                {
+                    <td>Đang hoạt động </td>
+                }
+                @if (Model.status == 2)
+                {
+                    <td>Tạm khóa </td>
+                }
+            </dd>
+
+        </dl>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group">
+            <a href="@Url.Action("Edit","Tour",new { id = Model.tour_id })" class="btn btn-sm btn-success">Sửa</a>
+            <a href="@Url.Action("","Tour")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+        </div>
+    </div>
+</div>

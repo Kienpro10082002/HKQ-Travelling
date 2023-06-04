@@ -1,0 +1,89 @@
+﻿@model HKQTravel.Models.admin_account
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <div class="col-md-6">
+            <strong class="text-danger">
+                CHI TIẾT TÀI KHOẢN QUẢN TRỊ VIÊN
+            </strong>
+        </div>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">
+                <label for="name"> Mã tài khoản:</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.admin_id)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name"> Tên tài khoản:</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.admin_user)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Mật khẩu:</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.admin_password)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Họ và tên:</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.admin_fulllname)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Email</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.email)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Ngày tạo</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.create_date)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Ngày cập nhật</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.update_date)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Trạng thái</label>
+            </dt>
+            <dd class="col-sm-9">
+                @if (Model.status == 1)
+                {
+                    <td>Đang hoạt động </td>
+                }
+                @if (Model.status == 2)
+                {
+                    <td>Tạm khóa </td>
+                }
+            </dd>
+
+        </dl>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group">
+            <a href="@Url.Action("Edit","Admin",new { id = Model.admin_id })" class="btn btn-sm btn-success">Sửa</a>
+            <a href="@Url.Action("","Admin")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+        </div>
+    </div>
+</div>

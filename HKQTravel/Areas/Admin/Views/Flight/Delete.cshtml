@@ -1,0 +1,103 @@
+﻿@model HKQTravel.Models.flight
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Chuyến bay</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.flight_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.flight_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.departure_location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.departure_location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.destination_location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.destination_location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.start_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.start_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.return_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.return_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.number_of_passenger)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.number_of_passenger)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.class_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.class_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.flight_brand_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.flight_brand_id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
