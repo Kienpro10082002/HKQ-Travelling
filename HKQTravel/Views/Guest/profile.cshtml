@@ -13,23 +13,21 @@
     @Html.AntiForgeryToken()
     <main role="main">
         <div class="profile">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row py-4">
                     <div class="col-md-3 col-12 left">
                         <div class="wrapper p-4">
                             <div class="info d-flex align-items-center mb-md-3">
-                                <div class="image me-3">
-                                    <a href="#">
-                                        <img src="https://graph.facebook.com/2507534759423345/picture?type=normal&amp;width=500&amp;height=500" class="rounded-circle">
-                                    </a>
+
+                                <div >
+                                    <img src="~/Assets/User/img_slider/team-1.jpg" class="rounded-circle" style="height: 50px; width: 50px;">
                                 </div>
-                                <div class="info-wrapper">
-                                    <div>
-                                        <h5 class="fw-bold">@Model.user_fullname</h5>
-                                        <small>@Model.email</small>
-                                    </div>
-                                    <span id="toggle-profile-menu" class="d-lg-none"></span>
+
+                                <div style="margin-left: 5px;">
+                                    <h5 class="fw-bold">@Model.user_fullname</h5>
+                                    <small>@Model.email</small>
                                 </div>
+                                <span id="toggle-profile-menu" class="d-lg-none"></span>
                             </div>
                             <nav class="profile-links py-3">
                                 <ul id="accordion" class="accordion">
