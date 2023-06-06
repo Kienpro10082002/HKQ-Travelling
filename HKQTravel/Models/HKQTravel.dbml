@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HKQTravel" Class="HKQTravelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HKQTravel1" Class="HKQTravelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Table Name="dbo.admin_account" Member="admin_accounts">
     <Type Name="admin_account">
       <Column Name="admin_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -11,6 +11,26 @@
       <Column Name="update_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.user_account" Member="user_accounts">
+    <Type Name="user_account">
+      <Column Name="user_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_fullname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="phone_number" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="sex" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="user_image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="create_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="update_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="user_account_bill_flight" Member="bill_flights" ThisKey="user_id" OtherKey="user_id" Type="bill_flight" />
+      <Association Name="user_account_bill_hotel" Member="bill_hotels" ThisKey="user_id" OtherKey="user_id" Type="bill_hotel" />
+      <Association Name="user_account_bill_tour" Member="bill_tours" ThisKey="user_id" OtherKey="user_id" Type="bill_tour" />
+    </Type>
+  </Table>
   <Table Name="dbo.bill_flight" Member="bill_flights">
     <Type Name="bill_flight">
       <Column Name="bill_flight_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -19,8 +39,8 @@
       <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="user_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="flight_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Association Name="flight_bill_flight" Member="flight" ThisKey="flight_id" OtherKey="flight_id" Type="flight" IsForeignKey="true" />
       <Association Name="user_account_bill_flight" Member="user_account" ThisKey="user_id" OtherKey="user_id" Type="user_account" IsForeignKey="true" />
+      <Association Name="flight_bill_flight" Member="flight" ThisKey="flight_id" OtherKey="flight_id" Type="flight" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.bill_hotel" Member="bill_hotels">
@@ -31,8 +51,8 @@
       <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="user_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="hotel_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Association Name="hotel_bill_hotel" Member="hotel" ThisKey="hotel_id" OtherKey="hotel_id" Type="hotel" IsForeignKey="true" />
       <Association Name="user_account_bill_hotel" Member="user_account" ThisKey="user_id" OtherKey="user_id" Type="user_account" IsForeignKey="true" />
+      <Association Name="hotel_bill_hotel" Member="hotel" ThisKey="hotel_id" OtherKey="hotel_id" Type="hotel" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.bill_tour" Member="bill_tours">
@@ -43,8 +63,8 @@
       <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="user_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="tour_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Association Name="tour_bill_tour" Member="tour" ThisKey="tour_id" OtherKey="tour_id" Type="tour" IsForeignKey="true" />
       <Association Name="user_account_bill_tour" Member="user_account" ThisKey="user_id" OtherKey="user_id" Type="user_account" IsForeignKey="true" />
+      <Association Name="tour_bill_tour" Member="tour" ThisKey="tour_id" OtherKey="tour_id" Type="tour" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.class" Member="classes">
@@ -149,26 +169,6 @@
       <Column Name="tour_type_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="tour_type_tour" Member="tours" ThisKey="tour_type_id" OtherKey="tour_type_id" Type="tour" />
-    </Type>
-  </Table>
-  <Table Name="dbo.user_account" Member="user_accounts">
-    <Type Name="user_account">
-      <Column Name="user_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="user_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_fullname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="phone_number" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="address" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="sex" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="user_image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="create_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="update_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="user_account_bill_flight" Member="bill_flights" ThisKey="user_id" OtherKey="user_id" Type="bill_flight" />
-      <Association Name="user_account_bill_hotel" Member="bill_hotels" ThisKey="user_id" OtherKey="user_id" Type="bill_hotel" />
-      <Association Name="user_account_bill_tour" Member="bill_tours" ThisKey="user_id" OtherKey="user_id" Type="bill_tour" />
     </Type>
   </Table>
 </Database>

@@ -13,29 +13,13 @@ namespace HKQTravel.Controllers
     {
         HKQTravelDataContext data = new HKQTravelDataContext();
 
-        //Get the tour list from database;
-        private List<tour> getTour(int count)
-        {
-            return data.tours.OrderByDescending(a => a.tour_id).Take(count).ToList();
-        }
-        private List<hotel> getHotel(int count)
-        {
-            return data.hotels.OrderByDescending(a => a.hotel_id).Take(count).ToList();
-        }
-        private List<flight> getFlight(int count)
-        {
-            return data.flights.OrderByDescending(a => a.flight_id).Take(count).ToList();
-        }
-        private List<destination_point> getDestination(int count)
-        {
-            return data.destination_points.OrderByDescending(a => a.destination_id).Take(count).ToList();
-        }
-
         //Options in Service
         public ActionResult Service()
         {
             return View();
         }
+
+        #region Detail
 
         //Click to depend on the index action and the travel action.
         public ActionResult DetailTour(long id)
@@ -54,22 +38,23 @@ namespace HKQTravel.Controllers
             return View(detailFlights.Single());
         }
 
+        #endregion
+
         #region hotel
         public ActionResult Hotel(int? page)
         {
-            var hotel = getHotel(1000);
-            int pagesize = 10;
             int pagenum = (page ?? 1);
-            return View(hotel.ToPagedList(pagenum, pagesize));
+            int pagesize = 5;
+            return View(data.hotels.Where(p => p.status == 1).ToList().ToPagedList(pagenum, pagesize));
         }
         #endregion
+
         #region flight
         public ActionResult Flight(int? page)
         {
-            var flight = getFlight(1000);
-            int pagesize = 10;
             int pagenum = (page ?? 1);
-            return View(flight.ToPagedList(pagenum, pagesize));
+            int pagesize = 5;
+            return View(data.flights.Where(p => p.status == 1).ToList().ToPagedList(pagenum, pagesize));
         }
         #endregion
 
@@ -78,23 +63,17 @@ namespace HKQTravel.Controllers
         //Display homepage
         public ActionResult Index(int? page)
         {
-            var tour = getTour(1000);
-            var destination = getDestination(1000);
-            int pagesize = 10;
             int pagenum = (page ?? 1);
-            return View(tour.ToPagedList(pagenum, pagesize));
+            int pagesize = 5;
+            return View(data.tours.Where(p => p.status == 1).ToList().ToPagedList(pagenum, pagesize));
         }
 
         //Display tour and destination
         public ActionResult Travel(int? page)
         {
-            var tour = getTour(1000);
-            var destination = getDestination(1000);
-            int pagesize = 10;
             int pagenum = (page ?? 1);
-            return View(tour.ToPagedList(pagenum, pagesize));
-
-
+            int pagesize = 5;
+            return View(data.tours.Where(p => p.status == 1).ToList().ToPagedList(pagenum, pagesize));
         }
 
         //Display About

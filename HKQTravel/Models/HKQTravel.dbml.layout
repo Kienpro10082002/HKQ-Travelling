@@ -2,172 +2,172 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.5, 14" name="HKQTravel">
   <DataContextMoniker Name="/HKQTravelDataContext" />
   <nestedChildShapes>
-    <classShape Id="1b54f662-7abb-4935-b0db-ceb34722691b" absoluteBounds="9.75, 8.75, 2, 2.3478011067708344">
+    <classShape Id="102c960a-eb2f-4896-9eb1-b6416eca1ef8" absoluteBounds="9.75, 8.75, 2, 2.3478011067708344">
       <DataClassMoniker Name="/HKQTravelDataContext/admin_account" />
       <nestedChildShapes>
-        <elementListCompartment Id="a963b519-4a05-49a1-9987-523b1d808aea" absoluteBounds="9.765, 9.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9aaa467b-6a41-486b-b0a3-89f809a3533e" absoluteBounds="9.765, 9.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6d153fbe-8461-434d-8551-e50830c12368" absoluteBounds="12.25, 5.5, 2, 1.9631982421875005">
-      <DataClassMoniker Name="/HKQTravelDataContext/bill_flight" />
-      <nestedChildShapes>
-        <elementListCompartment Id="09c9a4b0-5686-4f88-8f0b-03c923d9ad29" absoluteBounds="12.265, 5.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="17f86a85-6b8f-491f-815e-76f40cc57945" absoluteBounds="9.25, 1.5, 2, 1.9631982421875003">
-      <DataClassMoniker Name="/HKQTravelDataContext/bill_hotel" />
-      <nestedChildShapes>
-        <elementListCompartment Id="3792f2e6-a03c-424d-8892-f121a983899d" absoluteBounds="9.265, 1.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="6bd5123d-22fc-4a18-a337-fb54cbe73bce" absoluteBounds="6.25, 1.5, 2, 1.9631982421875003">
-      <DataClassMoniker Name="/HKQTravelDataContext/bill_tour" />
-      <nestedChildShapes>
-        <elementListCompartment Id="f761ed13-1756-4480-97c1-a233b888c68c" absoluteBounds="6.265, 1.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="0798acf2-a19c-4dc8-8858-e33fbce2fdca" absoluteBounds="6.75, 5.875, 2, 1.1939925130208344">
-      <DataClassMoniker Name="/HKQTravelDataContext/class" />
-      <nestedChildShapes>
-        <elementListCompartment Id="4b5a52b1-71bd-4dd4-a2ba-0121fefa8bf0" absoluteBounds="6.765, 6.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="e5490dc8-0b80-4eb1-940e-846bfc83cd95" absoluteBounds="0.75, 1.875, 2, 1.3862939453124998">
-      <DataClassMoniker Name="/HKQTravelDataContext/departure_point" />
-      <nestedChildShapes>
-        <elementListCompartment Id="1a568fbc-acda-4c62-a1d9-5071e2c2f847" absoluteBounds="0.765, 2.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="b1d1365b-9cb8-42bf-af55-df5248e4afa7" absoluteBounds="0.75, 6.75, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/HKQTravelDataContext/destination_point" />
-      <nestedChildShapes>
-        <elementListCompartment Id="fb74d784-2d61-4dbc-a8a2-a7c6ed8e66fb" absoluteBounds="0.765, 7.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="53c604f8-5482-47ba-b57e-91643103a781" absoluteBounds="0.75, 9.125, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/HKQTravelDataContext/discount" />
-      <nestedChildShapes>
-        <elementListCompartment Id="4cf8d7c4-bc3c-4b41-afcb-08589fca02ee" absoluteBounds="0.765, 9.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="fbf68fdc-9f13-4b8e-a5cb-9c78198d8872" absoluteBounds="9.5, 5, 2, 2.9247054036458326">
-      <DataClassMoniker Name="/HKQTravelDataContext/flight" />
-      <nestedChildShapes>
-        <elementListCompartment Id="e3aee292-a03c-45c6-8dbc-8fe4ff1532d9" absoluteBounds="9.515, 5.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="899ce411-7d63-4501-a917-b3fac37f1559" absoluteBounds="6.75, 8.75, 2, 1.3862939453124987">
-      <DataClassMoniker Name="/HKQTravelDataContext/flight_brand" />
-      <nestedChildShapes>
-        <elementListCompartment Id="6a3be96f-7c59-422a-a2e7-61167ec1a75b" absoluteBounds="6.765, 9.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="e886b202-a71f-4973-abfd-34721132ee10" absoluteBounds="6.5, 11.375, 2, 2.3478011067708344">
-      <DataClassMoniker Name="/HKQTravelDataContext/hotel" />
-      <nestedChildShapes>
-        <elementListCompartment Id="5b8628af-8c2a-47c8-9d8b-9b72aa45002d" absoluteBounds="6.515, 11.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="e4aad087-eabf-40f3-80dc-b2192979dbf0" absoluteBounds="3.5, 1, 2, 3.1170068359375009">
-      <DataClassMoniker Name="/HKQTravelDataContext/tour" />
-      <nestedChildShapes>
-        <elementListCompartment Id="6e5c1477-767b-4d95-8ea2-bb9870e961e9" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="9ebf0970-67a8-4ab5-9e0c-73cbc7c4510e" absoluteBounds="0.75, 4.625, 2, 1.3862939453125005">
-      <DataClassMoniker Name="/HKQTravelDataContext/tour_type" />
-      <nestedChildShapes>
-        <elementListCompartment Id="9e1e69ee-d856-4e80-aa18-1120bd8a54ae" absoluteBounds="0.765, 5.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="687a513d-91a1-435e-9fb0-5f5491dd355d" absoluteBounds="3.5, 4.875, 2, 3.3093082682291657">
+    <classShape Id="e570a7cc-6448-4627-832c-fe24acf6796c" absoluteBounds="3.5, 4.875, 2, 3.3093082682291657">
       <DataClassMoniker Name="/HKQTravelDataContext/user_account" />
       <nestedChildShapes>
-        <elementListCompartment Id="71493907-69db-4d32-9a5e-7209244a72ea" absoluteBounds="3.515, 5.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="4ed00f2d-7fc2-4dd0-a28d-be6ff9b4cadc" absoluteBounds="3.515, 5.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(11.5 : 6.48159912109375); (12.25 : 6.48159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/HKQTravelDataContext/flight/flight_bill_flight" />
-      <nodes>
-        <classShapeMoniker Id="fbf68fdc-9f13-4b8e-a5cb-9c78198d8872" />
-        <classShapeMoniker Id="6d153fbe-8461-434d-8551-e50830c12368" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 6.47199625651042); (9.04166666666667 : 6.47199625651042 : JumpStart); (9.20833333333333 : 6.47199625651042 : JumpEnd); (9.22916416666667 : 6.47199625651042 : JumpStart); (9.42708333333333 : 6.47199625651042 : JumpEnd); (9.5 : 6.47199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/HKQTravelDataContext/class/class_flight" />
-      <nodes>
-        <classShapeMoniker Id="0798acf2-a19c-4dc8-8858-e33fbce2fdca" />
-        <classShapeMoniker Id="fbf68fdc-9f13-4b8e-a5cb-9c78198d8872" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 8.75); (9.125 : 8.375); (9.125 : 5.70474612825521); (9.22916416666667 : 5.70474612825521 : JumpStart); (9.42708333333333 : 5.70474612825521 : JumpEnd); (9.5 : 5.70474612825521)]" fixedFrom="NotFixed" fixedTo="Algorithm">
-      <AssociationMoniker Name="/HKQTravelDataContext/flight_brand/flight_brand_flight" />
-      <nodes>
-        <classShapeMoniker Id="899ce411-7d63-4501-a917-b3fac37f1559" />
-        <classShapeMoniker Id="fbf68fdc-9f13-4b8e-a5cb-9c78198d8872" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 12.5489005533854); (9.34375 : 12.5489005533854); (9.34375 : 3.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/HKQTravelDataContext/hotel/hotel_bill_hotel" />
-      <nodes>
-        <classShapeMoniker Id="e886b202-a71f-4973-abfd-34721132ee10" />
-        <classShapeMoniker Id="17f86a85-6b8f-491f-815e-76f40cc57945" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 2.48159912109375); (6.25 : 2.48159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/HKQTravelDataContext/tour/tour_bill_tour" />
-      <nodes>
-        <classShapeMoniker Id="e4aad087-eabf-40f3-80dc-b2192979dbf0" />
-        <classShapeMoniker Id="6bd5123d-22fc-4a18-a337-fb54cbe73bce" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 6.75121330413662); (3.125 : 6.37621330413662); (3.125 : 2.55850341796875); (3.22916666666667 : 2.55850341796875 : JumpStart); (3.39583333333333 : 2.55850341796875 : JumpEnd); (3.5 : 2.55850341796875)]" fixedFrom="NotFixed" fixedTo="Algorithm">
-      <AssociationMoniker Name="/HKQTravelDataContext/destination_point/destination_point_tour" />
-      <nodes>
-        <classShapeMoniker Id="b1d1365b-9cb8-42bf-af55-df5248e4afa7" />
-        <classShapeMoniker Id="e4aad087-eabf-40f3-80dc-b2192979dbf0" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 2.97239868164062); (3.04166666666667 : 2.97239868164062 : JumpStart); (3.20833333333333 : 2.97239868164062 : JumpEnd); (3.22916666666667 : 2.97239868164062 : JumpStart); (3.39583333333333 : 2.97239868164062 : JumpEnd); (3.5 : 2.97239868164062)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/HKQTravelDataContext/departure_point/departure_point_tour" />
-      <nodes>
-        <classShapeMoniker Id="e5490dc8-0b80-4eb1-940e-846bfc83cd95" />
-        <classShapeMoniker Id="e4aad087-eabf-40f3-80dc-b2192979dbf0" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 9.18807592307692); (3.3125 : 8.62557592307692); (3.3125 : 1.74799970898438); (3.5 : 1.74799970898438)]" fixedFrom="NotFixed" fixedTo="Algorithm">
-      <AssociationMoniker Name="/HKQTravelDataContext/discount/discount_tour" />
-      <nodes>
-        <classShapeMoniker Id="53c604f8-5482-47ba-b57e-91643103a781" />
-        <classShapeMoniker Id="e4aad087-eabf-40f3-80dc-b2192979dbf0" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.6868490375601); (2.9375 : 4.25); (2.9375 : 4.68104429747596); (3.06607443490112 : 4.55246986257484 : JumpStart); (3.18392556509888 : 4.43461873237708 : JumpEnd); (3.25357443490112 : 4.36496986257484 : JumpStart); (3.37142556509888 : 4.24711873237708 : JumpEnd); (3.50153746153846 : 4.1170068359375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/HKQTravelDataContext/tour_type/tour_type_tour" />
-      <nodes>
-        <classShapeMoniker Id="9ebf0970-67a8-4ab5-9e0c-73cbc7c4510e" />
-        <classShapeMoniker Id="e4aad087-eabf-40f3-80dc-b2192979dbf0" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 8.0857568359375); (9.04166666666667 : 8.0857568359375 : JumpStart); (9.20833333333333 : 8.0857568359375 : JumpEnd); (9.26041666666667 : 8.0857568359375 : JumpStart); (9.42708333333333 : 8.0857568359375 : JumpEnd); (13.25 : 8.0857568359375); (13.25 : 7.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <classShape Id="30fff0f8-769a-492e-ba5a-7bf0209aa9ce" absoluteBounds="12.25, 5.5, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/HKQTravelDataContext/bill_flight" />
+      <nestedChildShapes>
+        <elementListCompartment Id="87c4ba78-1cf8-4a73-8342-7589e2e2b6e0" absoluteBounds="12.265, 5.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bfa457fa-3995-4beb-9a12-2fd07a432600" absoluteBounds="9.25, 1.5, 2, 1.9631982421875003">
+      <DataClassMoniker Name="/HKQTravelDataContext/bill_hotel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e068c507-4902-4b7a-8361-d1c5ba1edbe9" absoluteBounds="9.265, 1.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cf490184-349f-4eba-bbfd-9c1b0808e444" absoluteBounds="6.25, 1.5, 2, 1.9631982421875003">
+      <DataClassMoniker Name="/HKQTravelDataContext/bill_tour" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a33b0d9e-57be-446e-9af6-dbb9355c2114" absoluteBounds="6.265, 1.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5d73a7fd-0078-4cab-8665-11183f236efb" absoluteBounds="6.75, 5.875, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/HKQTravelDataContext/class" />
+      <nestedChildShapes>
+        <elementListCompartment Id="38d85dd4-f0e5-4d35-afbc-4605f4ff3160" absoluteBounds="6.765, 6.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="12503487-ed4e-4cb8-a10a-021a89f4f66a" absoluteBounds="0.75, 1.875, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/HKQTravelDataContext/departure_point" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f60bb117-7360-4ee2-8008-54e0b678f13b" absoluteBounds="0.765, 2.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fbf6ebd5-4711-443c-a259-a0b64aa4f2e3" absoluteBounds="0.75, 6.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/HKQTravelDataContext/destination_point" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1f9c46e3-aef0-4419-bd6a-13083865dc6c" absoluteBounds="0.765, 7.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="409d37bf-500a-4c87-aa5d-cfd1ba0c2fa9" absoluteBounds="0.75, 9.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/HKQTravelDataContext/discount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="17082642-86c8-4d26-86b5-edda7a625f3b" absoluteBounds="0.765, 9.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="36d07f8f-d110-43c9-be80-7f31763a1490" absoluteBounds="9.5, 5, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/HKQTravelDataContext/flight" />
+      <nestedChildShapes>
+        <elementListCompartment Id="be286c48-8a22-4b52-b966-13b3a875e1fd" absoluteBounds="9.515, 5.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e24f2cf6-8bc8-4253-ab65-1f37a4a7526e" absoluteBounds="6.75, 8.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/HKQTravelDataContext/flight_brand" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c8005ca-7882-40f1-943b-9872c3428d7c" absoluteBounds="6.765, 9.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4ff81ef1-b3bc-4555-8e72-abb6af170f64" absoluteBounds="6.5, 11.375, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/HKQTravelDataContext/hotel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="55087410-7ee8-4ab4-a620-43dbf5e8d3b1" absoluteBounds="6.515, 11.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4c7d0fbe-28fd-4367-9dfc-321fa9db7f50" absoluteBounds="3.5, 1, 2, 3.1170068359375009">
+      <DataClassMoniker Name="/HKQTravelDataContext/tour" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a025d84b-fe03-415d-99ac-25ac1ad1d90f" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="17c0e9cd-58f7-47f8-a6be-2a85da057c05" absoluteBounds="0.75, 4.625, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/HKQTravelDataContext/tour_type" />
+      <nestedChildShapes>
+        <elementListCompartment Id="840ec2cd-6ce3-4c22-abfc-b9f9726f8730" absoluteBounds="0.765, 5.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 8.0857568359375); (9.04166666666667 : 8.0857568359375 : JumpStart); (9.20833333333333 : 8.0857568359375 : JumpEnd); (9.22916416666667 : 8.0857568359375 : JumpStart); (9.39583083333333 : 8.0857568359375 : JumpEnd); (13.25 : 8.0857568359375); (13.25 : 7.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/HKQTravelDataContext/user_account/user_account_bill_flight" />
       <nodes>
-        <classShapeMoniker Id="687a513d-91a1-435e-9fb0-5f5491dd355d" />
-        <classShapeMoniker Id="6d153fbe-8461-434d-8551-e50830c12368" />
+        <classShapeMoniker Id="e570a7cc-6448-4627-832c-fe24acf6796c" />
+        <classShapeMoniker Id="30fff0f8-769a-492e-ba5a-7bf0209aa9ce" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 8.0545043359375); (9.04166666666667 : 8.0545043359375 : JumpStart); (9.20833333333333 : 8.0545043359375 : JumpEnd); (9.3124975 : 8.0545043359375); (9.3124975 : 3.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 8.0545043359375); (9.04166666666667 : 8.0545043359375 : JumpStart); (9.20833333333333 : 8.0545043359375 : JumpEnd); (9.34375 : 8.0545043359375); (9.34375 : 3.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/HKQTravelDataContext/user_account/user_account_bill_hotel" />
       <nodes>
-        <classShapeMoniker Id="687a513d-91a1-435e-9fb0-5f5491dd355d" />
-        <classShapeMoniker Id="17f86a85-6b8f-491f-815e-76f40cc57945" />
+        <classShapeMoniker Id="e570a7cc-6448-4627-832c-fe24acf6796c" />
+        <classShapeMoniker Id="bfa457fa-3995-4beb-9a12-2fd07a432600" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.5 : 5.34375); (6.46875 : 5.34375); (6.46875 : 3.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/HKQTravelDataContext/user_account/user_account_bill_tour" />
       <nodes>
-        <classShapeMoniker Id="687a513d-91a1-435e-9fb0-5f5491dd355d" />
-        <classShapeMoniker Id="6bd5123d-22fc-4a18-a337-fb54cbe73bce" />
+        <classShapeMoniker Id="e570a7cc-6448-4627-832c-fe24acf6796c" />
+        <classShapeMoniker Id="cf490184-349f-4eba-bbfd-9c1b0808e444" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 6.48159912109375); (12.25 : 6.48159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HKQTravelDataContext/flight/flight_bill_flight" />
+      <nodes>
+        <classShapeMoniker Id="36d07f8f-d110-43c9-be80-7f31763a1490" />
+        <classShapeMoniker Id="30fff0f8-769a-492e-ba5a-7bf0209aa9ce" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 6.47199625651042); (9.04166666666667 : 6.47199625651042 : JumpStart); (9.20833333333333 : 6.47199625651042 : JumpEnd); (9.22916416666667 : 6.47199625651042 : JumpStart); (9.42708333333333 : 6.47199625651042 : JumpEnd); (9.5 : 6.47199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HKQTravelDataContext/class/class_flight" />
+      <nodes>
+        <classShapeMoniker Id="5d73a7fd-0078-4cab-8665-11183f236efb" />
+        <classShapeMoniker Id="36d07f8f-d110-43c9-be80-7f31763a1490" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 8.75); (9.125 : 8.375); (9.125 : 5.70474612825521); (9.22916416666667 : 5.70474612825521 : JumpStart); (9.42708333333333 : 5.70474612825521 : JumpEnd); (9.5 : 5.70474612825521)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HKQTravelDataContext/flight_brand/flight_brand_flight" />
+      <nodes>
+        <classShapeMoniker Id="e24f2cf6-8bc8-4253-ab65-1f37a4a7526e" />
+        <classShapeMoniker Id="36d07f8f-d110-43c9-be80-7f31763a1490" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 12.5489005533854); (9.3124975 : 12.5489005533854); (9.3124975 : 3.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HKQTravelDataContext/hotel/hotel_bill_hotel" />
+      <nodes>
+        <classShapeMoniker Id="4ff81ef1-b3bc-4555-8e72-abb6af170f64" />
+        <classShapeMoniker Id="bfa457fa-3995-4beb-9a12-2fd07a432600" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.48159912109375); (6.25 : 2.48159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HKQTravelDataContext/tour/tour_bill_tour" />
+      <nodes>
+        <classShapeMoniker Id="4c7d0fbe-28fd-4367-9dfc-321fa9db7f50" />
+        <classShapeMoniker Id="cf490184-349f-4eba-bbfd-9c1b0808e444" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.75121330413662); (3.125 : 6.37621330413662); (3.125 : 2.55850341796875); (3.22916666666667 : 2.55850341796875 : JumpStart); (3.39583333333333 : 2.55850341796875 : JumpEnd); (3.5 : 2.55850341796875)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HKQTravelDataContext/destination_point/destination_point_tour" />
+      <nodes>
+        <classShapeMoniker Id="fbf6ebd5-4711-443c-a259-a0b64aa4f2e3" />
+        <classShapeMoniker Id="4c7d0fbe-28fd-4367-9dfc-321fa9db7f50" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.97239868164062); (3.04166666666667 : 2.97239868164062 : JumpStart); (3.20833333333333 : 2.97239868164062 : JumpEnd); (3.22916666666667 : 2.97239868164062 : JumpStart); (3.39583333333333 : 2.97239868164062 : JumpEnd); (3.5 : 2.97239868164062)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HKQTravelDataContext/departure_point/departure_point_tour" />
+      <nodes>
+        <classShapeMoniker Id="12503487-ed4e-4cb8-a10a-021a89f4f66a" />
+        <classShapeMoniker Id="4c7d0fbe-28fd-4367-9dfc-321fa9db7f50" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 9.18807592307692); (3.3125 : 8.62557592307692); (3.3125 : 1.74799970898438); (3.5 : 1.74799970898438)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HKQTravelDataContext/discount/discount_tour" />
+      <nodes>
+        <classShapeMoniker Id="409d37bf-500a-4c87-aa5d-cfd1ba0c2fa9" />
+        <classShapeMoniker Id="4c7d0fbe-28fd-4367-9dfc-321fa9db7f50" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.6868490375601); (2.9375 : 4.25); (2.9375 : 4.68104429747596); (3.06607443490112 : 4.55246986257484 : JumpStart); (3.18392556509888 : 4.43461873237708 : JumpEnd); (3.25357443490112 : 4.36496986257484 : JumpStart); (3.37142556509888 : 4.24711873237708 : JumpEnd); (3.50153746153846 : 4.1170068359375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HKQTravelDataContext/tour_type/tour_type_tour" />
+      <nodes>
+        <classShapeMoniker Id="17c0e9cd-58f7-47f8-a6be-2a85da057c05" />
+        <classShapeMoniker Id="4c7d0fbe-28fd-4367-9dfc-321fa9db7f50" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
