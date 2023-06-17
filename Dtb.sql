@@ -1,8 +1,8 @@
 ﻿USE master
 GO
-CREATE DATABASE [HKQTravel1]
+CREATE DATABASE [HKQTravel]
 GO
-USE [HKQTravel1]
+USE [HKQTravel]
 GO
 /****** Object:  Table [dbo].[admin_account]    Script Date: 6/4/2023 3:52:37 PM ******/
 SET ANSI_NULLS ON

@@ -22,7 +22,7 @@ namespace HKQTravel.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="HKQTravel1")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="HKQTravel")]
 	public partial class HKQTravelDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -63,24 +63,30 @@ namespace HKQTravel.Models
     partial void Inserthotel(hotel instance);
     partial void Updatehotel(hotel instance);
     partial void Deletehotel(hotel instance);
-    partial void Inserttour_type(tour_type instance);
-    partial void Updatetour_type(tour_type instance);
-    partial void Deletetour_type(tour_type instance);
     partial void Inserttour(tour instance);
     partial void Updatetour(tour instance);
     partial void Deletetour(tour instance);
+    partial void Inserttour_type(tour_type instance);
+    partial void Updatetour_type(tour_type instance);
+    partial void Deletetour_type(tour_type instance);
     partial void Insertuser_account(user_account instance);
     partial void Updateuser_account(user_account instance);
     partial void Deleteuser_account(user_account instance);
         #endregion
 
         public HKQTravelDataContext() :
-            base(global::System.Configuration.ConfigurationManager.ConnectionStrings["HKQTravel1ConnectionString"].ConnectionString, mappingSource)
+            base(global::System.Configuration.ConfigurationManager.ConnectionStrings["HKQTravelConnectionString"].ConnectionString, mappingSource)
         {
             OnCreated();
         }
 
-        public HKQTravelDataContext(System.Data.IDbConnection connection) : 
+        public HKQTravelDataContext(string connection) : 
+				base(connection, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public HKQTravelDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -186,19 +192,19 @@ namespace HKQTravel.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<tour_type> tour_types
-		{
-			get
-			{
-				return this.GetTable<tour_type>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tour> tours
 		{
 			get
 			{
 				return this.GetTable<tour>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tour_type> tour_types
+		{
+			get
+			{
+				return this.GetTable<tour_type>();
 			}
 		}
 		
@@ -2689,144 +2695,6 @@ namespace HKQTravel.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tour_type")]
-	public partial class tour_type : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _tour_type_id;
-		
-		private string _tour_type_name;
-		
-		private System.Nullable<int> _status;
-		
-		private EntitySet<tour> _tours;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Ontour_type_idChanging(long value);
-    partial void Ontour_type_idChanged();
-    partial void Ontour_type_nameChanging(string value);
-    partial void Ontour_type_nameChanged();
-    partial void OnstatusChanging(System.Nullable<int> value);
-    partial void OnstatusChanged();
-    #endregion
-		
-		public tour_type()
-		{
-			this._tours = new EntitySet<tour>(new Action<tour>(this.attach_tours), new Action<tour>(this.detach_tours));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tour_type_id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long tour_type_id
-		{
-			get
-			{
-				return this._tour_type_id;
-			}
-			set
-			{
-				if ((this._tour_type_id != value))
-				{
-					this.Ontour_type_idChanging(value);
-					this.SendPropertyChanging();
-					this._tour_type_id = value;
-					this.SendPropertyChanged("tour_type_id");
-					this.Ontour_type_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tour_type_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string tour_type_name
-		{
-			get
-			{
-				return this._tour_type_name;
-			}
-			set
-			{
-				if ((this._tour_type_name != value))
-				{
-					this.Ontour_type_nameChanging(value);
-					this.SendPropertyChanging();
-					this._tour_type_name = value;
-					this.SendPropertyChanged("tour_type_name");
-					this.Ontour_type_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int")]
-		public System.Nullable<int> status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this.OnstatusChanging(value);
-					this.SendPropertyChanging();
-					this._status = value;
-					this.SendPropertyChanged("status");
-					this.OnstatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tour_type_tour", Storage="_tours", ThisKey="tour_type_id", OtherKey="tour_type_id")]
-		public EntitySet<tour> tours
-		{
-			get
-			{
-				return this._tours;
-			}
-			set
-			{
-				this._tours.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_tours(tour entity)
-		{
-			this.SendPropertyChanging();
-			entity.tour_type = this;
-		}
-		
-		private void detach_tours(tour entity)
-		{
-			this.SendPropertyChanging();
-			entity.tour_type = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tour")]
 	public partial class tour : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3342,6 +3210,144 @@ namespace HKQTravel.Models
 		{
 			this.SendPropertyChanging();
 			entity.tour = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tour_type")]
+	public partial class tour_type : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _tour_type_id;
+		
+		private string _tour_type_name;
+		
+		private System.Nullable<int> _status;
+		
+		private EntitySet<tour> _tours;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Ontour_type_idChanging(long value);
+    partial void Ontour_type_idChanged();
+    partial void Ontour_type_nameChanging(string value);
+    partial void Ontour_type_nameChanged();
+    partial void OnstatusChanging(System.Nullable<int> value);
+    partial void OnstatusChanged();
+    #endregion
+		
+		public tour_type()
+		{
+			this._tours = new EntitySet<tour>(new Action<tour>(this.attach_tours), new Action<tour>(this.detach_tours));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tour_type_id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long tour_type_id
+		{
+			get
+			{
+				return this._tour_type_id;
+			}
+			set
+			{
+				if ((this._tour_type_id != value))
+				{
+					this.Ontour_type_idChanging(value);
+					this.SendPropertyChanging();
+					this._tour_type_id = value;
+					this.SendPropertyChanged("tour_type_id");
+					this.Ontour_type_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tour_type_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string tour_type_name
+		{
+			get
+			{
+				return this._tour_type_name;
+			}
+			set
+			{
+				if ((this._tour_type_name != value))
+				{
+					this.Ontour_type_nameChanging(value);
+					this.SendPropertyChanging();
+					this._tour_type_name = value;
+					this.SendPropertyChanged("tour_type_name");
+					this.Ontour_type_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int")]
+		public System.Nullable<int> status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tour_type_tour", Storage="_tours", ThisKey="tour_type_id", OtherKey="tour_type_id")]
+		public EntitySet<tour> tours
+		{
+			get
+			{
+				return this._tours;
+			}
+			set
+			{
+				this._tours.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tours(tour entity)
+		{
+			this.SendPropertyChanging();
+			entity.tour_type = this;
+		}
+		
+		private void detach_tours(tour entity)
+		{
+			this.SendPropertyChanging();
+			entity.tour_type = null;
 		}
 	}
 	
