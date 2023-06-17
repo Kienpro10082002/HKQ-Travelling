@@ -1,0 +1,90 @@
+﻿@model HKQTravel.Models.hotel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="col-md-6">
+            <strong class="text-danger">
+                CHI TIẾT KHÁCH SẠN
+            </strong>
+        </div>
+    </div>
+    <div class="card-body">
+
+        <dl class="row">
+            <dt class="col-sm-3">
+                <label for="name"> Mã khách sạn</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.hotel_id)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Tên khách sạn</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.hotel_name)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Địa điểm</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.location)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Số phòng</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.number_room)
+            </dd>
+            
+            <dt class="col-sm-3">
+                <label for="name">Giá phòng </label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.price)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Xếp hạng</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.ranking)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Ảnh khách sạn</label>
+            </dt>
+            <dd class="col-sm-9">
+                <td><img src="@Url.Content(Model.image)" width="150" height="100" /></td>
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Trạng thái</label>
+            </dt>
+            <dd class="col-sm-9">
+                @if (Model.status == 1)
+                {
+                    <td>Đang hoạt động </td>
+                }
+                @if (Model.status == 2)
+                {
+                    <td>Tạm khóa </td>
+                }
+            </dd>
+
+        </dl>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group">
+            <a href="@Url.Action("Edit","Hotel",new { id = Model.hotel_id })" class="btn btn-sm btn-success">Sửa</a>
+            <a href="@Url.Action("","Hotel")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+        </div>
+    </div>
+</div>

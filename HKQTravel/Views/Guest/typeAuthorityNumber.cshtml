@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "typeAuthorityNumber";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @using (Html.BeginForm("typeAuthorityNumber", "Guest", FormMethod.Post, new { @class = "needs-validation", novalidate = "true" }))
+    {
+        @Html.ValidationSummary(true)
+
+        <h2 class="text-center">Nhập mã xác thực</h2>
+
+        <div class="form-group">
+            <label for="userName">Tên tài khoản:</label>
+            <input class="form-control" type="text" id="userName" name="userName" value="@ViewData["userName"]" readonly/>
+        </div>
+
+        <div class="form-group">
+            <label for="acceptNumber">Nhập mã xác thực của bạn:</label>
+            <input class="form-control" type="text" id="acceptNumber" name="acceptNumber" />
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-outline-primary" type="submit">Xác thực</button>
+        </div>
+    }
+</div>
+
+<script>
+    function successFunction() {
+        var message = "@Html.Raw(ViewData["Message"]);
+        alert(message);
+    }
+</script>
+

@@ -1,0 +1,88 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<HKQTravel.Models.tour>
+@{
+    ViewBag.Title = "HKQTravellings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Travel", "Home"))
+{
+
+    <!-- Destination Start -->
+    <div class="container-xxl py-5 destination">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Destination</h6>
+                <h1 class="mb-5">Popular Destination</h1>
+            </div>
+            <div class="row g-3">
+                @foreach (var des in Model)
+                {
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+
+                        <div class="package-item">
+                            <div class="overflow-hidden m-2">
+                                <img class="img-touring" src="@Url.Content(des.destination_point.destination_image)" alt="">
+                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">@des.destination_point.destination_name</div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+    <!-- Destination End -->
+    <!-- Tour Start-->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Packages</h6>
+                <h1 class="mb-5">Awesome Packages</h1>
+            </div>
+
+            <div class="row g-4 justify-content-between">
+                @foreach (var tour in Model)
+                {
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+
+                        <div class="package-item">
+                            <div class="overflow-hidden">
+                                <img class="img-touring" src="@Url.Content(tour.destination_point.destination_image)" alt="@tour.destination_point.destination_image">
+                            </div>
+                            <div class="d-flex border-bottom">
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>@tour.destination_point.destination_name</small>
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>@(tour.return_time.Value.Day - tour.departure_time.Value.Day ) Days</small>
+                            </div>
+                            <div class="text-center p-4">
+                                <h3 class="mb-0">@String.Format("{0:0,0}", tour.price) VND</h3>
+                                <div class="mb-3">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                                <p>@HKQTravel.Assets.User.StringHelper.Truncate(tour.tour_name, 50)</p>
+                                <div class="d-flex justify-content-center mb-2">
+                                    <a href="@Url.Action("DetailTour", "Home", new { id = tour.tour_id })" class="btn btn-sm btn-primary px-3 border-1" style="border-radius: 30px;">Xem Tour</a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+
+                <div class="MenuTrang" style="display: flex;justify-content: center;padding-top: 16px;">
+                    @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tour Start-->
+}

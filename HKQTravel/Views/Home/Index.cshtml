@@ -1,0 +1,173 @@
+﻿@using HKQTravel.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<tour>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="img-fluid position-absolute w-100 h-100" src="~/Assets/User/img_slider/about.jpg" alt="" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <h6 class="section-title bg-white text-start text-primary pe-3">Đôi lời về chúng tôi</h6>
+                <h1 class="mb-4">Chào mừng bạn đã đến với <span class="text-primary">HKQTourist</span></h1>
+                <p class="mb-4">Tận tâm tận tụy với công việc luôn ưu tiên trải nghiệm của hàng khách lên hàng đầu</p>
+                <p class="mb-4">Khi tham gia cùng chúng tôi bạn sẽ được trải nghiệm cảm giác thoải mái, vui vẻ, hòa đồng, nhiệt tình của nhân viên chúng tôi. Vinh hạnh khi được đồng hành cùng bạn trong mỗi chuyến đi</p>
+                <div class="row gy-2 gx-4 mb-4">
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Dịch vụ tốt nhất</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Chỗ ở sạch sẽ với các khách sạn tốt</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Xe đời mới</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>An toàn, tận tâm</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Các dịch vụ giải trí trong từng chuyến tour</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Giá cả hợp lý</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Service Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
+            <h1 class="mb-5">Our Services</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                        <h5>WorldWide Tours</h5>
+                        <p>Trải nghiệm tuyệt vời cùng với những chuyến du lịch khắp thế giới</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
+                        <h5>Hotel Reservation</h5>
+                        <p>Chọn lọc những khách sạn với những đánh giá cao từ người dùng</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-user text-primary mb-4"></i>
+                        <h5>Travel Guides</h5>
+                        <p>Sự tần tình từ các chuyên viên hướng dẫn trong những chuyến du lịch của bạn</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-cog text-primary mb-4"></i>
+                        <h5>Event Management</h5>
+                        <p>Các sự kiện giảm giá ở trong các gói du lịch mang lại sự tiết kiệm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+<!-- Destination Start -->
+<div class="container-xxl py-5 destination">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Destination</h6>
+            <h1 class="mb-5">Popular Destination</h1>
+        </div>
+        <div class="row g-3">
+            @foreach (var des in Model)
+            {
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+
+                    <div class="package-item">
+                        <div class="overflow-hidden m-2">
+                            <img class="img-touring" src="@Url.Content(des.destination_point.destination_image)" alt="">
+                            <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">@des.destination_point.destination_name</div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<!-- Destination End -->
+<!-- Tour Start-->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Packages</h6>
+            <h1 class="mb-5">Awesome Packages</h1>
+        </div>
+
+        <div class="row g-4 justify-content-between">
+            @foreach (var tour in Model)
+            {
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+
+                    <div class="package-item">
+                        <div class="overflow-hidden">
+                            <img class="img-touring" src="@Url.Content(tour.destination_point.destination_image)" alt="@tour.destination_point.destination_image">
+                        </div>
+                        <div class="d-flex border-bottom">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>@tour.destination_point.destination_name</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>@(tour.return_time.Value.Day - tour.departure_time.Value.Day ) Days</small>
+                            @*<small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2 Person</small>*@
+                        </div>
+                        <div class="text-center p-4">
+                            <h3 class="mb-0">@String.Format("{0:0,0}", tour.price) VND</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                            </div>
+                            <p>@HKQTravel.Assets.User.StringHelper.Truncate(tour.tour_name, 50)</p>
+                            <div class="d-flex justify-content-center mb-2">
+                                <a href="@Url.Action("DetailTour", "Home", new { id = tour.tour_id })" class="btn btn-sm btn-primary px-3 border-1" style="border-radius: 30px;">Xem Tour</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+
+            <div class="MenuTrang" style="display: flex;justify-content: center;padding-top: 16px;">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Tour Start-->

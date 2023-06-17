@@ -1,0 +1,215 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* header section */
+
+.dropdown-menu {
+    background-color: #fff;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    color: #212529;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* remove icon dropdown */
+.dropdown-toggle::after {
+    display: none;
+}
+
+/* spacing between li and logo */
+.navbar-nav>li {
+    margin-right: 15px;
+}
+
+.navbar-brand {
+    margin-left: 30px;
+}
+
+/* hover for item of nav */
+.nav-item:hover {
+    background-color: #eee;
+    color: #333;
+}
+
+.nav-link:hover {
+    color: red;
+}
+
+/* slider effected */
+.carousel-item {
+    transition: transform ease-out 0.5s;
+}
+
+.carousel-item-next,
+.carousel-item-prev {
+    transition: transform ease-out 0.5s;
+}
+
+.carousel-item-next.carousel-item-left,
+.carousel-item-prev.carousel-item-right {
+    transform: translateX(0);
+}
+
+@media (min-width: 992px) {
+
+    .carousel-item-right.active,
+    .carousel-item-next {
+        transform: translateX(33.33%);
+    }
+
+    .carousel-item-left.active,
+    .carousel-item-prev {
+        transform: translateX(-33.33%);
+    }
+}
+
+.carousel-item img {
+    max-height: 500px;
+    object-fit: cover;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* slide đi từ phải sang trái */
+.carousel {
+    direction: rtl;
+}
+
+/* footer section  */
+.social-icons>li {
+    text-decoration: none;
+}
+
+.social-icons li:first-child a {
+    margin-left: 0;
+}
+
+.social-icons li:not(:first-child) a {
+    font-size: 24px;
+    margin-left: 10px;
+    /* khoảng cách giữa các thẻ a */
+}
+
+/* footer section  */
+
+.footer-section ul li {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.footer-section a{
+    text-decoration: none;
+}
+
+.footer-section a:hover{
+    color: red;
+}
+
+.footer-section ul li ul li a i {
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer-section ul li ul li a i:hover {
+    color: red;
+}
+
+/* Thanh tìm kiếm */
+form {
+    position: relative;
+}
+
+/* Ô nhập liệu */
+.form-control {
+    border: none;
+
+    background-color: #f1f1f1;
+}
+
+/* Nút tìm kiếm */
+.btn-outline-success {
+    color: #28a745;
+    border-color: #28a745;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+/* Nút tìm kiếm khi hover */
+.btn-outline-success:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+form input.form-control{
+    
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #ececec;
+}
+
+/*------------ Login container ------------*/
+
+.box-area {
+    width: 930px;
+}
+
+/*------------ Left box -------------*/
+.left-box {
+    background-image: url('~/lib/imgs/hcm-login.jpg');
+    background-size: cover; /* Hiển thị hình ảnh đầy đủ trong khu vực của div */
+    background-position: center center; /* Canh giữa hình ảnh theo chiều ngang và dọc */
+    background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+}
+
+/*------------ Right box ------------*/
+
+.right-box {
+    padding: 40px 30px 40px 40px;
+}
+
+/*------------ Custom Placeholder ------------*/
+
+::placeholder {
+    font-size: 16px;
+}
+
+.rounded-4 {
+    border-radius: 20px;
+}
+
+.rounded-5 {
+    border-radius: 30px;
+}
+
+
+/*------------ For small screens------------*/
+
+@media only screen and (max-width: 768px) {
+
+    .box-area {
+        margin: 0 10px;
+    }
+
+    .left-box {
+        height: 100px;
+        overflow: hidden;
+    }
+
+    .right-box {
+        padding: 20px;
+    }
+}

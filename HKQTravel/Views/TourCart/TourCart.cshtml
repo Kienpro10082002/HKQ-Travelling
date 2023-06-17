@@ -1,0 +1,46 @@
+﻿﻿@model IEnumerable<HKQTravel.Models.TourCartModel>
+@{
+    ViewBag.Title = "HKQTraveling";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    using (Html.BeginForm("updateTourCart", "TourCart", new { id = item.iIdTour }))
+    {
+        <div class="container">
+            <div class="card-body">
+                <h3>Xem trước thanh toán</h3>
+                <table class="table table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Tên tour du lịch</th>
+                            <th scope="col">Giá tour/vé</th>
+                            <th scope="col">Số lượng</th>
+                            <th scope="col">Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th id="tourName" class="sTourName" scope="row">@HKQTravel.Assets.User.StringHelper.BreakDownLine(item.sTourName, 20)</th>
+                            <th scope="row">@String.Format("{0:0,0}", item.dprice) VND</th>
+                            <th scope="row">
+                                <div class="d-inline">
+                                    <input type="number" value="@item.iQuantity" name="txtSoluong" min="1">
+                                    <button class="btn btn-primary" style="margin-top: 4px;" type="submit">Cập nhật</button>
+                                </div>
+                            </th>
+                            <th scope="row">@String.Format("{0:0,0}", ViewBag.dTotalpriceTour) VND</th>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <b style="color: red;">Lưu ý: Cập nhật số vé trước khi thanh toán</b>
+                    <br />
+                    <a class="btn btn-info" href="@Url.Action("bookingTour","TourCart")">Thanh Toán</a>
+                    <a class="btn btn-outline-primary" href="@Url.Action("deleteAllTourCart","TourCart")">Quay lại</a>
+                </div>
+            </div>
+        </div>
+    }
+}

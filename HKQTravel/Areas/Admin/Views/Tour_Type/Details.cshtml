@@ -1,0 +1,42 @@
+﻿@model HKQTravel.Models.tour_type
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <div class="col-md-6">
+            <strong class="text-danger">
+                CHI TIẾT LOẠI TOUR
+            </strong>
+        </div>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">
+                <label for="name"> Mã loại tour</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.tour_type_id)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Tên loại tour</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.tour_type_name)
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group">
+            <a href="@Url.Action("Edit","Discount",new { id = Model.tour_type_id })" class="btn btn-sm btn-success">Sửa</a>
+            <a href="@Url.Action("","Discount")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+        </div>
+    </div>
+</div>
+    

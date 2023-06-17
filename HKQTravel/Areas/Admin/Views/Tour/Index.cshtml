@@ -1,0 +1,101 @@
+﻿@using PagedList.Mvc;
+@using HKQTravel.Models;
+@model PagedList.PagedList<HKQTravel.Models.tour>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <strong class="text-danger">
+                        DANH SÁCH TOUR
+                    </strong>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="@Url.Action("Create","Tour")" class="btn btn-sm btn-success">Thêm</a>
+                    <a href="@Url.Action("Trashlist","Tour")" class="btn btn-sm btn-danger">Thùng rác</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>Id</th>
+                    <th>Tên tour</th>
+                    <th>Giá</th>
+                    <th>Ngày khởi hành</th>
+                    <th>Ngày về</th>
+                    <th>điểm Khởi hành</th>
+                    <th>điểm Đến</th>
+                    <th>loại tour</th>
+                    <th>phiếu giảm giá</th>
+                    <th>Trạng thái</th>
+                    <th>Chức năng</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center"><input type="checkbox" /></td>
+                        <td class="text-center">@item.tour_id</td>
+                        <td>@item.tour_name</td>
+                        <td>@String.Format("{0:0,0}", item.price)</td>
+                        <td>@item.departure_time</td>
+                        <td>@item.return_time</td>
+                        <td>@Html.DisplayFor(modelItem => item.departure_point.departure_name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.destination_point.destination_name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.tour_type.tour_type_name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.discount.discount_name)</td>
+                        @if (item.status == 1)
+                        {
+                            <td>Đang hoạt động </td>
+                        }
+                        @if (item.status == 2)
+                        {
+                            <td>Tạm đóng </td>
+                        }
+                        <td class="text-center">
+                            @if (item.status == 1)
+                            {
+                                <a href="@Url.Action("Status","Tour",new { id = item.tour_id })" class="btn btn-sm btn-success"><i class="fas fa-toggle-on"></i></a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("Status","Tour",new { id = item.tour_id })" class="btn btn-sm btn-danger"><i class="fas fa-toggle-off"></i></a>
+                            }
+                            <a href="@Url.Action("Edit","Tour",new { id = item.tour_id })" class="btn btn-sm btn-success">Sửa</a>
+                            <a href="@Url.Action("Details","Tour",new { id = item.tour_id })" class="btn btn-sm btn-info">Chi tiết</a>
+                            <a href="@Url.Action("DeleteTemporary","Tour",new { id = item.tour_id })" class="btn btn-sm btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+        <div class="card-footer">
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+            <div class="MenuTrang">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+            </div>
+            <style>
+                .MenuTrang li {
+                    display: inline;
+                }
+
+                    .MenuTrang li a {
+                        color: black;
+                        float: left;
+                        padding: 8px 16px;
+                        text-decoration: none;
+                    }
+            </style>
+        </div>
+    </div>
+</section>

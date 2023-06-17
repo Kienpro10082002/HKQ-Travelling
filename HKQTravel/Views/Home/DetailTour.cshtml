@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "DetailTour";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-6">
+                    <div class="white-box text-center"><img src="~/Assets/User/img_slider/@Model.destination_point.destination_image" style="width: 350px; height: 300px; border-radius: 230px 0 0 230px; " class="img-responsive"></div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-6">
+                    <h4 class="box-title mt-5">@Model.destination_point.destination_name</h4>
+                    <p>@Model.tour_name</p>
+                    <h2 class="mt-5">
+                        <small class="text-success">@String.Format("{0:0,0}", Model.price) VND</small>
+                    </h2>
+
+                    <a href="@Url.Action("add_TourCart","TourCart", new { id = Model.tour_id, strURL=Request.Url.ToString()})" class="btn btn-sm btn-primary px-3" style="border-radius: 30px;">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

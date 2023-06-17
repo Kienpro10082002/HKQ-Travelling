@@ -1,0 +1,53 @@
+﻿@model HKQTravel.Models.departure_point
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="col-md-6">
+            <strong class="text-danger">
+                CHI TIẾT ĐIỂM KHỞI HÀNH
+            </strong>
+        </div>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">
+                <label for="name"> Mã Điểm khởi hành</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.departure_id)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Tên điểm khởi hành</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.departure_name)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Trạng thái</label>
+            </dt>
+            <dd class="col-sm-9">
+                @if (Model.status == 1)
+                {
+                    <td>Đang hoạt động </td>
+                }
+                @if (Model.status == 2)
+                {
+                    <td>Tạm khóa </td>
+                }
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group">
+            <a href="@Url.Action("Edit","Departure_Poin",new { id = Model.departure_id })" class="btn btn-sm btn-success">Sửa</a>
+            <a href="@Url.Action("","Departure_Poin")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+        </div>
+    </div>
+</div>

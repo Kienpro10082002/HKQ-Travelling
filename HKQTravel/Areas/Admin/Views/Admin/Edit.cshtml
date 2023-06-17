@@ -1,0 +1,69 @@
+﻿@model HKQTravel.Models.admin_account
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong class="text-danger">
+                            CẬP NHẬT TÀI KHOẢN QUẢN TRỊ
+                        </strong>
+                    </div>
+
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-success btn-sm" type="submit">Cập nhật</button>
+                        <a href="@Url.Action("", "Admin")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-9 ">
+                        <div class="mb-3">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.admin_id)
+
+                            <div class="form-group">
+                                <label for="name">Tên tài khoản:</label>
+                                @Html.EditorFor(model => model.admin_user, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.admin_user, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">mật khẩu:</label>
+                                @Html.EditorFor(model => model.admin_password, new { htmlAttributes = new { @class = "form-control", Type = "password" } })
+                                @Html.ValidationMessageFor(model => model.admin_password, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Tên quản trị viên:</label>
+                                @Html.EditorFor(model => model.admin_fulllname, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.admin_fulllname, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Email:</label>
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", Type = "email" } })
+                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        <div class="card-footer text-right">
+            <button class="btn btn-success btn-sm" type="submit">Cập nhật</button>
+            <a href="@Url.Action("", "Admin")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+        </div>
+    </section>
+}

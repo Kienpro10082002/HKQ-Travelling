@@ -1,0 +1,104 @@
+﻿@model HKQTravel.Models.flight
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="col-md-6">
+            <strong class="text-danger">
+                CHI TIẾT CHUYẾN BAY
+            </strong>
+        </div>
+    </div>
+    <div class="card-body">
+
+        <dl class="row">
+            <dt class="col-sm-3">
+                <label for="name"> Tên chuyến bay</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.flight_name)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Giá ghế</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.price)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Điểm đi</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.departure_location)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Điểm đến</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.destination_location)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Thời gian khởi hành</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.start_time)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Thời gian trở về</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.return_time)
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Số ghế ngồi</label>
+            </dt>
+            <dd class="col-sm-9">
+                <td>@Html.DisplayFor(model => model.number_of_passenger)</td>
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name">Loại vé</label>
+            </dt>
+            <dd class="col-sm-9">
+                <td>@Html.DisplayFor(modelItem => Model.@class.class_name)</td>
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Hãng máy bay</label>
+            </dt>
+            <dd class="col-sm-9">
+                <td>@Html.DisplayFor(modelItem => Model.flight_brand.flight_brand_name)</td>
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Trạng thái</label>
+            </dt>
+            <dd class="col-sm-9">
+                @if (Model.status == 1)
+                {
+                    <td>Đang hoạt động </td>
+                }
+                @if (Model.status == 2)
+                {
+                    <td>Tạm khóa </td>
+                }
+            </dd>
+
+        </dl>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group">
+            <a href="@Url.Action("Edit","Flight",new { id = Model.flight_id })" class="btn btn-sm btn-success">Sửa</a>
+            <a href="@Url.Action("","Flight")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+        </div>
+    </div>
+</div>

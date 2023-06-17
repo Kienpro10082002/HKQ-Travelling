@@ -1,0 +1,61 @@
+﻿@model HKQTravel.Models.destination_point
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="col-md-6">
+            <strong class="text-danger">
+                CHI TIẾT ĐIỂM ĐẾN
+            </strong>
+        </div>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">
+                <label for="name"> Mã điểm đến</label>
+
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.destination_id)
+            </dd>
+            <dt class="col-sm-3">
+                <label for="name"> Tên điểm đến</label>
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.destination_name)
+            </dd>
+            
+            <dt class="col-sm-3">
+                <label for="name">Ảnh điểm đến</label>
+            </dt>
+            <dd class="col-sm-9">
+                <td><img src="@Url.Content(Model.destination_image)" width="150" height="100" /></td>
+            </dd>
+
+            <dt class="col-sm-3">
+                <label for="name">Trạng thái</label>
+            </dt>
+            <dd class="col-sm-9">
+                @if (Model.status == 1)
+                {
+                    <td>Đang hoạt động </td>
+                }
+                @if (Model.status == 2)
+                {
+                    <td>Tạm khóa </td>
+                }
+
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group">
+            <a href="@Url.Action("Edit","Destination_Point",new { id = Model.destination_id })" class="btn btn-sm btn-success">Sửa</a>
+            <a href="@Url.Action("","Destination_Point")" class="btn btn-sm btn-primary"> <i class="fas fa-arrow-circle-left"></i>Về lại danh sách</a>
+        </div>
+    </div>
+</div>

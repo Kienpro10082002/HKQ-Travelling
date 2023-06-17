@@ -1,0 +1,74 @@
+﻿
+
+@if (Session["user_account"] == null)
+{
+    <div class="button-container">
+        <a class="btn btn-primary rounded-pill py-2 px-3" href="@Url.Action("Login", "Guest")">Đăng nhập</a>
+        <a class="btn btn-primary rounded-pill py-2 px-3" href="@Url.Action("Register", "Guest")">Đăng ký</a>
+    </div>
+}
+else
+{
+    <div class="navbar-nav nav-item dropdown" style="position: relative;">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+           data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-user-circle"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="position: absolute; left: -150px; top: 60px;">
+            <li><a class="dropdown-item" href="@Url.Action("profile", "Guest")"><i class="fa-solid fa-user-circle"></i> @Session["fullName"]</a></li>
+            <li>
+                <button class="dropdown-item" id="lichSuButton">Lịch sử</button>
+                <ul id="lichSuMenu" class="dropdown-submenu" style="display: none;">
+                    <li><a class="dropdown-item" href="@Url.Action("historyTour", "Guest")">Lịch sử đặt tour</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("historyHotel", "Guest")">Lịch sử vé khách sạn</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("historyFlight", "Guest")">Lịch sử vé máy bay</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="dropdown-item" id="gioHangButton">Giỏ hàng</button>
+                <ul id="gioHangMenu" class="dropdown-submenu" style="display: none;">
+                    <li><a class="dropdown-item" href="@Url.Action("TourCart", "TourCart")">Đặt tour</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("HotelCart", "HotelCart")">Đặt vé khách sạn</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("FlightCart", "FlightCart")">Đặt vé máy bay</a></li>
+                </ul>
+            </li>
+            <li><a class="dropdown-item" href="@Url.Action("changePassword", "Guest")">Đổi mật khẩu</a></li>
+            <li><a class="dropdown-item" href="@Url.Action("Logout","Guest")">Đăng xuất</a></li>
+        </ul>
+    </div>
+}
+
+<script>
+    // Lấy các phần tử từ mã HTML
+    var lichSuButton = document.getElementById('lichSuButton');
+    var lichSuMenu = document.getElementById('lichSuMenu');
+
+    // Xử lý sự kiện click trên nút "Lịch sử"
+    lichSuButton.addEventListener('click', function () {
+        // Kiểm tra hiển thị của menu lịch sử
+        if (lichSuMenu.style.display === 'none') {
+            // Nếu đang ẩn, hiển thị menu lịch sử
+            lichSuMenu.style.display = 'block';
+        } else {
+            // Nếu đang hiển thị, ẩn menu lịch sử
+            lichSuMenu.style.display = 'none';
+        }
+    });
+
+    //*************Giỏ hàng*/
+    // Lấy các phần tử từ mã HTML
+    var gioHangButton = document.getElementById('gioHangButton');
+    var gioHangMenu = document.getElementById('gioHangMenu');
+
+    // Xử lý sự kiện click trên nút "Giỏ hàng"
+    gioHangButton.addEventListener('click', function () {
+        // Kiểm tra hiển thị của menu giỏ hàng
+        if (gioHangMenu.style.display === 'none') {
+            // Nếu đang ẩn, hiển thị menu giỏ hàng
+            gioHangMenu.style.display = 'block';
+        } else {
+            // Nếu đang hiển thị, ẩn menu giỏ hàng
+            gioHangMenu.style.display = 'none';
+        }
+    });
+</script>

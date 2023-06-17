@@ -1,0 +1,227 @@
+﻿@model IEnumerable<HKQTravel.Models.user_account>
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+
+
+@using (Html.BeginForm("Register", "Guest"))
+{
+    @Html.ValidationSummary(true)
+    <div class="container">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">ĐĂNG KÝ DU KHÁCH</h1>
+                            </div>
+
+                            <form class="user">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-user" id="fullname" name="fullname"
+                                           placeholder="Họ và tên" value="@Request.Form["fullname"]">
+                                    <label for="floatingInput">Họ và tên</label>
+                                    <div class="invalid-feedback d-block">@ViewData["erro_fullname"]</div>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-user" id="user" name="user"
+                                           placeholder="Tên đăng nhập" value="@Request.Form["user"]">
+                                    <label for="floatingInput">Tên đăng nhập</label>
+                                    <div class="invalid-feedback d-block">@ViewData["erro_user"]</div>
+
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control form-control-user" id="email" name="email"
+                                           placeholder="Email" value="@Request.Form["email"]">
+                                    <label for="floatingInput">Email</label>
+                                    <div class="invalid-feedback d-block">@ViewData["erro_email"]</div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                               id="password" name="password" placeholder="Mật khẩu">
+                                        <div class="invalid-feedback d-block" id="password-strength"></div>
+                                        <div class="invalid-feedback d-block">@ViewData["erro_pass"]</div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                               id="repassword" name="repassword" placeholder="Xác nhận">
+                                        <div class="invalid-feedback d-block">@ViewData["erro_repass"]</div>
+                                    </div>
+                                </div>
+
+                                @*ngày sinh*@
+                                <div class="form-group row">
+                                    <div class="col-sm-4 mb-sm-0">
+                                        <label for="day">Ngày sinh:</label>
+                                        <select class="form-control" id="day" name="day">
+                                            <option value=""> --Chọn ngày --</option>
+                                            @for (int i = 1; i <= 31; i++)
+                                            {
+                                                <option style="text-align:center" value="@i">Ngày @i</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for="month">&nbsp;</label>
+                                        <select class="form-control " id="month" name="month">
+                                            <option value=""> --Chọn tháng --</option>
+                                            @for (int i = 1; i <= 12; i++)
+                                            {
+                                                <option style="text-align:center" value="@i">Tháng @i</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for="year"> &nbsp;</label>
+                                        <select class="form-control" id="year" name="year">
+                                            <option value=""> --Chọn năm-- </option>
+                                            @for (int i = DateTime.Now.Year - 100; i <= DateTime.Now.Year; i++)
+                                            {
+                                                <option style="text-align:center" value="@i"> Năm @i </option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="sex"> Giới tính:</label>
+                                    <select class="form-control" id="sex" name="sex">
+                                        <option value="Nam"> Nam </option>
+                                        <option value="Nữ"> Nữ </option>
+                                        <option value="Khác"> Khác </option>
+                                    </select>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control form-control-user" id="phone" name="phone"
+                                           placeholder="Số điện thoại" value="@Request.Form["phone"]">
+                                    <label for="floatingInput">
+                                        Số điện thoại
+                                    </label>
+
+                                    <div class="invalid-feedback d-block"> @ViewData["erro_phone"] </div>
+
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-user" id="adress" name="adress"
+                                           placeholder="Điạ chỉ" value="@Request.Form["adress"]">
+                                    <label for="floatingInput"> Điạ chỉ </label>
+                                    <div class="invalid-feedback d-block"> @ViewData["erro_address"] </div>
+                                </div>
+
+                                <div class="input-group mb-1">
+                                    <label for="image" class="form-label"> Chọn hình ảnh đại diện</label>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="file" id="image" name="image" accept=".jpg,.png" class="form-control form-control-lg bg-light fs-6 d-block">
+                                </div>
+
+                                <input type="submit" class="btn btn-primary btn-user btn-block" value="Đăng ký">
+
+
+                                <hr>
+
+                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw">
+                                    </i>Đăng ký với Google
+                                </a>
+
+                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Đăng ký với Facebook
+                                </a>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="forgot-password.html"> Quên mật khẩu?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="login.html"> Đã có tài khoản ? Đăng nhập</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+
+<script>
+    function checkPasswordStrength(password) {
+        var strength = 0;
+
+        // Kiểm tra độ dài của mật khẩu
+        if (password.length >= 8) {
+            strength++;
+        }
+
+        // Kiểm tra có chứa ký tự đặc biệt
+        if (/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(password)) {
+            strength++;
+        }
+
+        // Kiểm tra có chứa chữ cái viết hoa
+        if (/[A-Z]/.test(password)) {
+            strength++;
+        }
+
+        // Kiểm tra có chứa chữ cái viết thường
+        if (/[a-z]/.test(password)) {
+            strength++;
+        }
+
+        // Kiểm tra có chứa chữ số
+        if (/[0-9]/.test(password)) {
+            strength++;
+        }
+
+        return strength;
+    }
+</script>
+
+
+
+<script>
+    var passwordInput = document.getElementById('password');
+    var passwordStrength = document.getElementById('password-strength');
+
+    passwordInput.addEventListener('input', function () {
+        var strength = checkPasswordStrength(passwordInput.value);
+        var feedback = '';
+
+        switch (strength) {
+            case 0:
+                passwordStrength.innerHTML = 'Mật khẩu quá yếu';
+                feedback = 'Mật khẩu phải có ít nhất 8 ký tự, chứa ký tự đặc biệt, chữ cái viết hoa và thường, và chữ số';
+                break;
+            case 1:
+                passwordStrength.innerHTML = 'Mật khẩu yếu';
+                feedback = 'Mật khẩu phải chứa ký tự đặc biệt, chữ cái viết hoa và thường, và chữ số';
+                break;
+            case 2:
+                passwordStrength.innerHTML = 'Mật khẩu trung bình';
+                feedback = 'Mật khẩu phải chứa chữ cái viết hoa và thường, và chữ số';
+                break;
+            case 3:
+                passwordStrength.innerHTML = 'Mật khẩu mạnh';
+                feedback = 'Mật khẩu có độ mạnh đủ để sử dụng';
+                break;
+            case 4:
+                passwordStrength.innerHTML = 'Mật khẩu rất mạnh';
+                feedback = 'hacker bó tay';
+                break;
+        }
+
+        passwordStrength.innerHTML += ' - ' + feedback;
+    });
+</script>

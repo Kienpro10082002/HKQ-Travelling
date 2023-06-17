@@ -1,0 +1,72 @@
+﻿@using PagedList.Mvc;
+@using HKQTravel.Models;
+@model  PagedList.PagedList<HKQTravel.Models.flight_brand>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <strong class="text-danger">
+                        DANH SÁCH HÃNG MÁY BAY
+                    </strong>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="@Url.Action("Create","FLight_Brand")" class="btn btn-sm btn-success">Thêm</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>Id</th>
+                    <th>Tên hãng máy bay</th>
+                    <th>Hình ảnh</th>
+                    <th>Chức năng</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center"><input type="checkbox" /></td>
+                        <td class="text-center">@item.flight_brand_id</td>
+                        <td>@item.flight_brand_name</td>
+                        <td class="text-center"><img src="@Url.Content(item.flight_brand_image)" width="150" height="100" /></td>
+                        <td class="text-center">
+
+                            <a href="@Url.Action("Edit","FLight_Brand",new { id = item.flight_brand_id })" class="btn btn-sm btn-success">Sửa</a>
+                            <a href="@Url.Action("Details","FLight_Brand",new { id = item.flight_brand_id })" class="btn btn-sm btn-info">Chi tiết</a>
+                            <a href="@Url.Action("Delete","FLight_Brand",new { id = item.flight_brand_id })" class="btn btn-sm btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+        <div class="card-footer">
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+            <div class="MenuTrang">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+            </div>
+            <style>
+                .MenuTrang li {
+                    display: inline;
+                }
+
+                    .MenuTrang li a {
+                        color: black;
+                        float: left;
+                        padding: 8px 16px;
+                        text-decoration: none;
+                    }
+            </style>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<HKQTravel.Models.FlightCartModel>
+
+@{
+    ViewBag.Title = "FlightCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    using (Html.BeginForm("updateFlightCart", "FlightCart", new { id = item.iFlightId }))
+    {
+        <div class="container">
+            <div class="card-body">
+                <h3>Xem trước thanh toán</h3>
+                <table class="table table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Tên Flight du lịch</th>
+                            <th scope="col">Giá Flight/vé</th>
+                            <th scope="col">Số lượng</th>
+                            <th scope="col">Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th id="FlightName" class="sFlightName" scope="row">@HKQTravel.Assets.User.StringHelper.BreakDownLine(item.sFlight_Name, 20)</th>
+                            <th scope="row">@String.Format("{0:0,0}", item.dprice) VND</th>
+                            <th scope="row">
+                                <div class="d-inline">
+                                    <input type="number" value="@item.iQuantity" name="txtSoluong" min="1">
+                                    <button class="btn btn-primary" style="margin-top: 4px;" type="submit">Cập nhật</button>
+                                </div>
+                            </th>
+                            <th scope="row">@String.Format("{0:0,0}", ViewBag.dTotalpriceFlight) VND</th>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <b style="color: red;">Lưu ý: Cập nhật số vé trước khi thanh toán</b>
+                    <br />
+                    <a class="btn btn-info" href="@Url.Action("bookingFlight","FlightCart")">Thanh Toán</a>
+                    <a class="btn btn-outline-primary" href="@Url.Action("deleteAllFlightCart","FlightCart")">Quay lại</a>
+                </div>
+            </div>
+        </div>
+    }
+}

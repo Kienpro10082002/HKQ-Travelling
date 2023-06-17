@@ -1,0 +1,329 @@
+﻿@model HKQTravel.Models.user_account
+
+@{
+    ViewBag.Title = "profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://kit.fontawesome.com/5c6e471417.js" crossorigin="anonymous"></script>
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+    <main role="main">
+        <div class="profile">
+            <div class="container-fluid">
+                <div class="row py-4">
+                    <div class="col-md-3 col-12 left">
+                        <div class="wrapper p-4">
+                            <div class="info d-flex align-items-center mb-md-3">
+
+                                <div >
+                                    <img src="@Url.Content(Model.user_image)" class="rounded-circle" style="height: 50px; width: 50px;">
+                                </div>
+
+                                <div style="margin-left: 5px;">
+                                    <h5 class="fw-bold">@Model.user_fullname</h5>
+                                    <small>@Model.email</small>
+                                </div>
+                                <span id="toggle-profile-menu" class="d-lg-none"></span>
+                            </div>
+                            <nav class="profile-links py-3">
+                                <ul id="accordion" class="accordion">
+                                    <li>
+                                        <div class="link"><i class="fa fa-database"></i> Tài khoản <i class="fa fa-chevron-down"></i></div>
+                                        <ul class="submenu">
+                                            <li>
+                                                <a href="#">Thông tin tài khoản</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Đổi mật khẩu</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Ví</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Đăng xuất</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="link"><i class="fa fa-code"></i> Lịch sử <i class="fa fa-chevron-down"></i></div>
+                                        <ul class="submenu">
+                                            <li> <a href="#">Phiếu đặt tour</a></li>
+                                            <li><a href="#">Tour đã hoàn thành</a> </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="link"><i class="fa fa-mobile"></i> Yêu thích <i class="fa fa-chevron-down"></i></div>
+                                        <ul class="submenu">
+                                            <li><a href="#">Các tour yêu thích</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="link"><i class="fa fa-globe"></i> Giảm giá <i class="fa fa-chevron-down"></i></div>
+                                        <ul class="submenu">
+                                            <li><a href="#">Danh sách mã giảm</a></li>
+                                            <li><a href="#">Nhập mã giảm</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-12 right ps-md-4">
+                        <div class="wrapper p-md-4">
+
+                            <div class="heading">
+                                <h5 class="fw-bold">Thông tin cá nhân</h5>
+                                <p class="text-muted mb-4">
+                                    Cập nhật thông tin quý khách hàng
+                                </p>
+                            </div>
+                            <div class="row section-01">
+                                <div class="col-md-12 col-12 setting-wrap">
+
+                                    <div class="row setting-item">
+                                        <div class="col-md-3 col-12 setting-label">Họ và Tên</div>
+                                        <div class="col-md-9 col-12">
+                                            <div class="row">
+                                                <div class="col-12 col-md-12">
+                                                    <div class="display-form">
+                                                        <span>@Html.DisplayFor(Model => Model.user_fullname)</span>
+                                                        <a class="fw-bold text-underline toggle-edit-form">Chỉnh sửa</a>
+                                                    </div>
+                                                    <div class="edit-form">
+                                                        <div class="edit-form-wrapper">
+                                                            <div class="form-group">
+                                                                <label>Họ và Tên</label>
+                                                                <input class="form-control" id="Fullname" name="Fullname" placeholder="Nhập họ và tên" type="text" value="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-end">
+                                                            <button class="btn btn-sm btn-secondary edit-form-submit" onclick="ChangeName()">
+                                                                Xong
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row setting-item">
+                                        <div class="col-md-3 col-12 setting-label">Điện thoại</div>
+                                        <div class="col-md-9 col-12">
+                                            <div class="row">
+                                                <div class="col-12 col-md-12">
+                                                    <div class="display-form">
+                                                        <span>@Html.DisplayFor(Model => Model.phone_number)</span>
+                                                        <a class="fw-bold text-underline toggle-edit-form">Chỉnh sửa</a>
+                                                    </div>
+                                                    <div class="edit-form">
+                                                        <div class="edit-form-wrapper">
+                                                            <div class="form-group">
+                                                                <label>Họ và Tên</label>
+                                                                <input class="form-control" id="Phone" name="Phone" placeholder="Nhập số điện thoại" type="text" value="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-end">
+                                                            <button class="btn btn-sm btn-secondary edit-form-submit" onclick="ChangeName()">
+                                                                Xong
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row setting-item">
+                                        <div class="col-md-3 col-12 setting-label">Email</div>
+                                        <div class="col-md-9 col-12">
+                                            <div class="row">
+                                                <div class="col-12 col-md-12">
+                                                    <div class="display-form">
+                                                        <span>@Html.DisplayFor(Model => Model.email)</span>
+                                                        <a class="fw-bold text-underline toggle-edit-form">Chỉnh sửa</a>
+                                                    </div>
+                                                    <div class="edit-form">
+                                                        <div class="edit-form-wrapper">
+                                                            <div class="form-group">
+                                                                <label>Họ và Tên</label>
+                                                                <input class="form-control" id="email" name="email" placeholder="Nhập email" type="email" value="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-end">
+                                                            <button class="btn btn-sm btn-secondary edit-form-submit" onclick="ChangeName()">
+                                                                Xong
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row setting-item">
+                                        <div class="col-md-3 col-12 setting-label">Ngày sinh</div>
+                                        <div class="col-md-9 col-12">
+                                            <div class="row">
+                                                <div class="col-12 col-md-12">
+                                                    <div class="display-form">
+                                                        <div class="display-form-content">
+                                                            <p>@Html.DisplayFor(Model => Model.birthday)</p>
+                                                        </div>
+                                                        <a class="fw-bold text-underline toggle-edit-form">Chỉnh sửa</a>
+                                                    </div>
+                                                    <div class="edit-form">
+                                                        <div class="edit-form-wrapper">
+                                                            <div class="row">
+                                                                <div class="col-4">
+                                                                    <div class="form-group">
+                                                                        <label>Ngày</label>
+                                                                        <input type="text" id="birthDay" placeholder="DD" class="form-control" aria-describedby="birthDayBlock">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <div class="form-group">
+                                                                        <label>Tháng</label>
+                                                                        <input type="text" id="birthMonth" placeholder="MM" class="form-control" aria-describedby="birthMonthBlock">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <div class="form-group">
+                                                                        <label>Năm</label>
+                                                                        <input type="text" id="birthYear" placeholder="YYYY" class="form-control" aria-describedby="birthYearBlock">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-end">
+                                                            <button class="btn btn-sm btn-secondary edit-form-submit" onclick="ChangeBirthDay()">
+                                                                Xong
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row setting-item">
+                                        <div class="col-md-3 col-12 setting-label">Địa chỉ</div>
+                                        <div class="col-md-9 col-12">
+                                            <div class="row">
+                                                <div class="col-12 col-md-12">
+                                                    <div class="display-form">
+                                                        <div class="display-form-content">
+                                                            <p>
+                                                                @Html.DisplayFor(Model => Model.address)
+                                                            </p>
+                                                        </div>
+                                                        <a class="fw-bold text-underline toggle-edit-form">Chỉnh sửa</a>
+                                                    </div>
+                                                    <div class="edit-form">
+                                                        <div class="edit-form-wrapper">
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    <div class="form-group">
+                                                                        <label>Địa chỉ</label>
+                                                                        <input class="form-control" id="Address" name="Address" type="text" value="">
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-end">
+                                                            <button class="btn btn-sm btn-secondary edit-form-submit" onclick="ChangeAddress()">
+                                                                Xong
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row setting-item">
+                                        <div class="col-md-3 col-12 setting-label">Giới tính</div>
+                                        <div class="col-md-9 col-12">
+                                            <div class="row">
+                                                <div class="col-12 col-md-12">
+                                                    <div class="display-form">
+                                                        <div class="display-form-content">
+                                                            <p>@Html.DisplayFor(Model => Model.sex)</p>
+                                                        </div>
+                                                        <a class="fw-bold text-underline toggle-edit-form">Chỉnh sửa</a>
+                                                    </div>
+                                                    <div class="edit-form">
+                                                        <div class="edit-form-wrapper">
+                                                            <div class="form-group">
+                                                                <label>Giới tính</label>
+                                                                <select class="form-select" id="Gender" aria-label="Default select example">
+                                                                    <option selected="">Chọn giới tính</option>
+                                                                    <option value="0">Nam</option>
+                                                                    <option value="1">Nữ</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-end">
+                                                            <button class="btn btn-sm btn-secondary edit-form-submit" onclick="ChangeGender()">
+                                                                Xong
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-3 my-auto right mx-auto text-center d-none">
+                                        <div class="mb-3 profile-picture mx-auto">
+                                            <a href="#">
+                                                <img src="../../images/mock-avatar.png" class="circle w-100">
+                                            </a>
+                                        </div>
+                                        <div class="file btn btn-outline-secondary mb-3">
+                                            Chọn ảnh
+                                            <input type="file" name="file">
+                                        </div>
+                                        <div class="text-center">
+                                            Dung lượng file tối da 1 MB <br>Định dạng: .JPEG, .PNG
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Lấy tất cả các phần tử HTML của button chỉnh sửa và form chỉnh sửa
+            var editButtons = document.querySelectorAll('.toggle-edit-form');
+            var editForms = document.querySelectorAll('.edit-form');
+            var editing = false;
+
+            // Lắng nghe sự kiện click cho mỗi button chỉnh sửa
+            editButtons.forEach(function (editButton, index) {
+                // Lắng nghe sự kiện click vào button chỉnh sửa
+                editButton.addEventListener('click', function () {
+                    var editForm = editForms[index];
+                    if (!editing) {
+                        // Thêm lớp active cho form chỉnh sửa để hiển thị
+                        editForm.classList.add('active');
+                        // Đổi nội dung của button thành "Hủy"
+                        editButton.textContent = 'Hủy';
+                        editing = true;
+                    } else {
+                        // Xóa lớp active khỏi form chỉnh sửa để ẩn đi
+                        editForm.classList.remove('active');
+                        // Đổi nội dung của button thành "Chỉnh sửa"
+                        editButton.textContent = 'Chỉnh sửa';
+                        editing = false;
+                    }
+                });
+            });
+        </script>
+
+    </main>
+}
+<div>
+</div>
